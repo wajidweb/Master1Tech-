@@ -9,18 +9,19 @@ export default function CallToAction() {
           backgroundImage: "url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=2070&q=80')",
         }}
       />
-      <div className="absolute inset-0 bg-charcoal/85" />
+      <div className="absolute inset-0 bg-charcoal/90" />
       <div className="relative z-10 container-wide text-center px-4">
-        <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4 text-shadow-lg">
+        <p className="text-accent text-[11px] font-semibold tracking-[0.3em] uppercase mb-4">Your Journey Begins</p>
+        <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-white mb-4">
           Ready to Transform Your Leadership?
         </h2>
-        <p className="text-gray-200 text-sm sm:text-base md:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto">
-          Let our team craft your perfect executive retreat. Luxury wellness, strategic GCC insights,
-          and unforgettable experiences — all in one transformative journey.
+        <p className="text-white/40 text-sm sm:text-base mb-8 sm:mb-10 max-w-lg mx-auto font-semibold leading-relaxed">
+          Luxury wellness, strategic GCC insights, and unforgettable
+          experiences — all in one journey.
         </p>
         <Link
           to="/plan-my-retreat"
-          className="inline-flex items-center justify-center rounded-full bg-brand px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold text-white transition-all hover:bg-brand-hover hover:scale-105 shadow-lg"
+          className="inline-flex items-center justify-center rounded-full border border-accent/40 text-accent hover:bg-accent hover:text-charcoal px-8 sm:px-10 py-3.5 sm:py-4 text-[13px] sm:text-sm tracking-widest uppercase font-semibold transition-all duration-300"
         >
           Plan My Retreat
         </Link>

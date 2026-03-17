@@ -6,8 +6,8 @@ export default function WizardProgress({ currentStep }) {
       {stepNames.map((name, i) => (
         <div
           key={name}
-          className={`h-1 sm:h-1.5 flex-1 rounded-full transition-all duration-300 ${
-            i < currentStep ? 'bg-accent' : 'bg-gray-200'
+          className={`h-0.5 sm:h-1 flex-1 rounded-full transition-all duration-500 ${
+            i < currentStep ? 'bg-accent' : 'bg-white/10'
           }`}
         />
       ))}

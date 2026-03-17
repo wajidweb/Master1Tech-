@@ -5,19 +5,19 @@ const retreatStyles = [
     value: 'beach-wellness',
     label: 'Beach & Wellness',
     icon: Sun,
-    description: 'Oceanfront luxury, spa rejuvenation, yoga, meditation, and gourmet dining.',
+    description: 'Oceanfront luxury, spa rejuvenation, and gourmet dining.',
   },
   {
     value: 'mountain-leadership',
     label: 'Mountain Leadership',
     icon: Mountain,
-    description: 'High-altitude vision building, cultural immersion, ancient sites, and adventure.',
+    description: 'High-altitude vision building and cultural immersion.',
   },
   {
     value: 'combined',
     label: 'Combined Experience',
     icon: Compass,
-    description: 'The best of both worlds — coastal wellness followed by mountain leadership.',
+    description: 'Coastal wellness followed by mountain leadership.',
   },
 ]
 
@@ -39,18 +39,18 @@ export default function StepStyle({ selected = {}, onUpdate }) {
 
   return (
     <div>
-      <div className="text-center mb-6 sm:mb-8">
-        <p className="text-accent font-semibold text-xs sm:text-sm tracking-wide mb-1 sm:mb-2">STEP 4</p>
-        <h1 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-charcoal mb-1 sm:mb-2">
+      <div className="text-center mb-8 sm:mb-10">
+        <p className="text-accent text-[11px] font-semibold tracking-[0.3em] uppercase mb-2">Step 4</p>
+        <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-semibold text-white mb-2">
           What's your retreat style?
         </h1>
-        <p className="text-slate text-sm sm:text-base">
-          Choose the experience type and focus areas for your retreat
+        <p className="text-white/40 text-sm font-semibold">
+          Choose your experience type and focus areas
         </p>
       </div>
 
       <div className="max-w-2xl mx-auto">
-        <h3 className="font-heading text-lg font-semibold text-charcoal mb-3">Retreat Type</h3>
+        <h3 className="text-[11px] font-semibold tracking-[0.2em] uppercase text-white/50 mb-3">Retreat Type</h3>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8">
           {retreatStyles.map((s) => {
             const Icon = s.icon
@@ -58,21 +58,21 @@ export default function StepStyle({ selected = {}, onUpdate }) {
               <button
                 key={s.value}
                 onClick={() => onUpdate({ ...selected, style: s.value })}
-                className={`p-5 rounded-xl border-2 transition-all text-left ${
+                className={`p-5 rounded-xl border transition-all text-left ${
                   style === s.value
                     ? 'border-accent bg-accent/10'
-                    : 'border-gray-200 hover:border-accent/50'
+                    : 'border-white/10 hover:border-accent/30'
                 }`}
               >
-                <Icon className={`h-8 w-8 mb-3 ${style === s.value ? 'text-accent' : 'text-slate'}`} />
-                <span className="text-sm font-semibold text-charcoal block">{s.label}</span>
-                <span className="text-xs text-slate block mt-1 leading-relaxed">{s.description}</span>
+                <Icon className={`h-6 w-6 mb-3 ${style === s.value ? 'text-accent' : 'text-white/30'}`} />
+                <span className="text-sm font-semibold text-white block">{s.label}</span>
+                <span className="text-[11px] text-white/30 block mt-1 leading-relaxed">{s.description}</span>
               </button>
             )
           })}
         </div>
 
-        <h3 className="font-heading text-lg font-semibold text-charcoal mb-3">Focus Areas (select all that apply)</h3>
+        <h3 className="text-[11px] font-semibold tracking-[0.2em] uppercase text-white/50 mb-3">Focus Areas</h3>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           {focusAreas.map((f) => {
             const Icon = f.icon
@@ -81,14 +81,14 @@ export default function StepStyle({ selected = {}, onUpdate }) {
               <button
                 key={f.value}
                 onClick={() => toggleFocus(f.value)}
-                className={`p-4 rounded-xl border-2 transition-all flex items-center gap-3 ${
+                className={`p-4 rounded-xl border transition-all flex items-center gap-3 ${
                   isSelected
                     ? 'border-accent bg-accent/10'
-                    : 'border-gray-200 hover:border-accent/50'
+                    : 'border-white/10 hover:border-accent/30'
                 }`}
               >
-                <Icon className={`h-5 w-5 shrink-0 ${isSelected ? 'text-accent' : 'text-slate'}`} />
-                <span className={`text-sm font-medium ${isSelected ? 'text-charcoal' : 'text-slate'}`}>{f.label}</span>
+                <Icon className={`h-5 w-5 shrink-0 ${isSelected ? 'text-accent' : 'text-white/30'}`} />
+                <span className={`text-sm font-semibold ${isSelected ? 'text-white' : 'text-white/50'}`}>{f.label}</span>
               </button>
             )
           })}

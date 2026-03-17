@@ -18,31 +18,28 @@ export default function DestinationsCarousel() {
   const scroll = (direction) => {
     const el = scrollRef.current
     if (!el) return
-    const amount = direction === 'left' ? -340 : 340
-    el.scrollBy({ left: amount, behavior: 'smooth' })
+    el.scrollBy({ left: direction === 'left' ? -340 : 340, behavior: 'smooth' })
     setTimeout(checkScroll, 400)
   }
 
   return (
-    <section className="section-padding bg-white">
+    <section className="section-padding bg-charcoal">
       <div className="container-wide">
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 sm:gap-4 mb-6 sm:mb-10">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8 sm:mb-12">
           <div>
-            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-charcoal mb-1 sm:mb-2">
+            <p className="text-accent text-[11px] font-semibold tracking-[0.3em] uppercase mb-2">Our Markets</p>
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-semibold text-white">
               Explore by Destination
             </h2>
-            <p className="text-slate text-sm sm:text-base">
-              Discover high-potential emerging markets for your next executive retreat
-            </p>
           </div>
           <div className="hidden sm:flex items-center gap-2">
             <button
               disabled={!canScrollLeft}
               onClick={() => scroll('left')}
-              className={`p-3 rounded-full border-2 transition-all ${
+              className={`p-3 rounded-full border transition-all ${
                 canScrollLeft
-                  ? 'border-charcoal text-charcoal hover:bg-charcoal hover:text-white'
-                  : 'border-gray-200 text-gray-300 cursor-not-allowed'
+                  ? 'border-white/20 text-white/60 hover:bg-white/5 hover:text-white'
+                  : 'border-white/5 text-white/15 cursor-not-allowed'
               }`}
               aria-label="Previous"
             >
@@ -51,10 +48,10 @@ export default function DestinationsCarousel() {
             <button
               disabled={!canScrollRight}
               onClick={() => scroll('right')}
-              className={`p-3 rounded-full border-2 transition-all ${
+              className={`p-3 rounded-full border transition-all ${
                 canScrollRight
-                  ? 'border-charcoal text-charcoal hover:bg-charcoal hover:text-white'
-                  : 'border-gray-200 text-gray-300 cursor-not-allowed'
+                  ? 'border-white/20 text-white/60 hover:bg-white/5 hover:text-white'
+                  : 'border-white/5 text-white/15 cursor-not-allowed'
               }`}
               aria-label="Next"
             >
@@ -67,7 +64,7 @@ export default function DestinationsCarousel() {
           <div
             ref={scrollRef}
             onScroll={checkScroll}
-            className="flex gap-3 sm:gap-4 md:gap-6 overflow-x-auto scrollbar-hide scroll-smooth"
+            className="flex gap-4 sm:gap-5 overflow-x-auto scroll-smooth"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {destinations.map((d) => (
@@ -78,8 +75,8 @@ export default function DestinationsCarousel() {
           </div>
         </div>
 
-        <p className="text-center text-xs sm:text-sm text-slate mt-3 sm:mt-4 sm:hidden">
-          ← Swipe to explore →
+        <p className="text-center text-[11px] text-white/20 tracking-wider mt-4 sm:hidden">
+          &larr; Swipe to explore &rarr;
         </p>
       </div>
     </section>
