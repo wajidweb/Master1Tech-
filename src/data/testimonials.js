@@ -1,0 +1,53 @@
+export const testimonials = [
+  {
+    id: 1,
+    name: 'Sarah Chen',
+    title: 'CTO, Fortune 500 Tech Company',
+    origin: 'San Francisco, CA',
+    destination: 'Pakistan (Khoj Allana)',
+    type: 'Leadership',
+    rating: 5,
+    text: 'The beach retreat was unlike any corporate offsite I\'ve attended. The blend of deep wellness, strategic GCC insights, and luxury was transformative. We\'re now actively exploring a Karachi tech center.',
+    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80',
+  },
+  {
+    id: 2,
+    name: 'James Rodriguez',
+    title: 'CHRO, Global Financial Services',
+    origin: 'New York, NY',
+    destination: 'Pakistan (Khoj Skardu)',
+    type: 'Executive',
+    rating: 5,
+    text: 'Leadership in the Heights completely shifted our perspective on emerging talent markets. The Shigar Valley setting was awe-inspiring, and the STZA tech park tour sealed our GCC decision.',
+    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&q=80',
+  },
+  {
+    id: 3,
+    name: 'Priya Mehta',
+    title: 'CEO, Enterprise SaaS Platform',
+    origin: 'Austin, TX',
+    destination: 'Indonesia (Bali)',
+    type: 'Wellness',
+    rating: 5,
+    text: 'Master1Tech crafted the perfect balance of luxury recharge and strategic insight. Our team returned with both renewed energy and a concrete plan for our Indonesia capability center.',
+    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=80',
+  },
+  {
+    id: 4,
+    name: 'Michael Thompson',
+    title: 'CIO, Fortune 200 Manufacturer',
+    origin: 'Chicago, IL',
+    destination: 'Vietnam (Da Nang)',
+    type: 'Strategy',
+    rating: 5,
+    text: 'We came for the retreat, stayed for the opportunity. The Da Nang coastline was stunning, but the real revelation was Vietnam\'s IT talent ecosystem. Already signed an MOU for 200+ engineers.',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80',
+  },
+]
+
+export const stats = [
+  { label: 'Fortune 1000 Executives', value: '50+' },
+  { label: 'Retreat Destinations', value: '8' },
+  { label: 'Cost Savings', value: '30-60%' },
+  { label: '5-Star Resort Partners', value: '12+' },
+]

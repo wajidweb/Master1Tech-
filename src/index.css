@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme {
+  --font-heading: "Playfair Display", serif;
+  --font-sans: "Source Sans 3", system-ui, sans-serif;
+
+  --color-brand: #1a365d;
+  --color-brand-hover: #153e75;
+  --color-brand-light: #2a4a7f;
+  --color-accent: #d4a853;
+  --color-accent-light: #e0be7a;
+  --color-charcoal: #1a1a2e;
+  --color-cream: #faf8f5;
+  --color-cream-dark: #ede8e0;
+  --color-slate: #64748b;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.container-wide {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-wide {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-wide {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.section-padding {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+@media (min-width: 640px) {
+  .section-padding {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.text-shadow-sm {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.text-shadow-md {
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.text-shadow-lg {
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
