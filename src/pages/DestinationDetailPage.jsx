@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom'
-import { ArrowRight, MapPin, Check, Clock } from 'lucide-react'
+import { ArrowRight, MapPin, Clock } from 'lucide-react'
 import { destinations } from '../data/destinations'
 import { retreatPackages } from '../data/retreatPackages'
 
@@ -19,6 +19,7 @@ export default function DestinationDetailPage() {
   }
 
   const resorts = dest.resorts || []
+  const destPackages = retreatPackages.filter((p) => p.destination === dest.name)
 
   return (
     <>
@@ -63,58 +64,43 @@ export default function DestinationDetailPage() {
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
               {resorts.map((resort) => (
-                <div
+                <Link
+                  to={`/destinations/${id}/${resort.id}`}
                   key={resort.id}
-                  className="group bg-surface rounded-xl overflow-hidden border border-white/5 hover:border-white/10 transition-all duration-300"
+                  className="group relative bg-surface rounded-xl overflow-hidden border border-white/5 hover:border-accent/20 transition-all duration-300"
                 >
-                  <div className="relative aspect-video overflow-hidden">
+                  <div className="relative aspect-4/3 overflow-hidden">
                     <img
                       alt={resort.name}
                       loading="lazy"
-                      className="object-cover absolute h-full w-full inset-0 transition-transform duration-500 group-hover:scale-105"
+                      className="object-cover absolute h-full w-full inset-0 transition-transform duration-700 group-hover:scale-110"
                       src={resort.image}
                     />
-                    <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent" />
-                    <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
-                      <span className="text-[10px] tracking-[0.2em] uppercase font-semibold bg-accent/20 backdrop-blur-sm text-accent px-3 py-1.5 rounded-full border border-accent/20">
+                    <div className="absolute inset-0 bg-linear-to-t from-black via-black/50 to-black/30" />
+                    <div className="absolute top-3 left-3">
+                      <span className="text-[9px] tracking-[0.2em] uppercase font-semibold bg-black/50 backdrop-blur-md text-accent px-2.5 py-1 rounded-full border border-accent/20">
                         {resort.type}
                       </span>
                     </div>
-                    <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 flex items-center gap-1.5 text-white/70">
-                      <MapPin className="h-3.5 w-3.5" />
-                      <span className="text-[11px] font-semibold">{resort.location}</span>
+
+                    <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">
+                      <div className="flex items-center gap-1.5 text-white/70 mb-2">
+                        <MapPin className="h-3 w-3" />
+                        <span className="text-[10px] font-semibold">{resort.location}</span>
+                      </div>
+                      <h3 className="font-heading text-lg sm:text-xl font-semibold text-white mb-1.5 group-hover:text-accent transition-colors leading-tight" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.6)' }}>
+                        {resort.name}
+                      </h3>
+                      <p className="text-white/60 text-[11px] leading-relaxed line-clamp-2 mb-3">{resort.tagline}</p>
+                      <span className="inline-flex items-center gap-1.5 text-accent text-[11px] tracking-wider uppercase font-semibold group-hover:gap-2.5 transition-all duration-300">
+                        Explore
+                        <ArrowRight className="h-3 w-3" />
+                      </span>
                     </div>
                   </div>
-
-                  <div className="p-5 sm:p-6">
-                    <p className="text-accent/60 text-[10px] font-semibold tracking-[0.2em] uppercase mb-1">{resort.tagline}</p>
-                    <h3 className="font-heading text-xl sm:text-2xl font-semibold text-white mb-3">
-                      {resort.name}
-                    </h3>
-                    <p className="text-white/50 text-[13px] leading-relaxed mb-5">
-                      {resort.description}
-                    </p>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-5">
-                      {resort.highlights.map((h) => (
-                        <div key={h} className="flex items-center gap-2">
-                          <Check className="h-3.5 w-3.5 text-accent shrink-0" />
-                          <span className="text-white/60 text-[12px]">{h}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <Link
-                      to="/plan-my-retreat"
-                      className="inline-flex items-center gap-2 text-accent text-[12px] tracking-wider uppercase font-semibold hover:gap-3 transition-all duration-300"
-                    >
-                      Book This Retreat
-                      <ArrowRight className="h-3.5 w-3.5" />
-                    </Link>
-                  </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
@@ -131,7 +117,7 @@ export default function DestinationDetailPage() {
       )}
 
       {/* Retreat Packages for this destination */}
-      {retreatPackages.filter((p) => p.destination === dest.name).length > 0 && (
+      {destPackages.length > 0 && (
         <section className="section-padding bg-surface border-t border-white/5">
           <div className="container-wide">
             <div className="text-center mb-8 sm:mb-12">
@@ -141,43 +127,41 @@ export default function DestinationDetailPage() {
               </h2>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-              {retreatPackages
-                .filter((p) => p.destination === dest.name)
-                .map((pkg) => (
-                  <Link to="/plan-my-retreat" key={pkg.id} className="group">
-                    <article className="bg-charcoal rounded-xl overflow-hidden border border-white/5 hover:border-white/10 transition-all duration-300 h-full flex flex-col">
-                      <div className="relative aspect-4/3 overflow-hidden">
-                        <img
-                          alt={pkg.title}
-                          loading="lazy"
-                          className="object-cover absolute h-full w-full inset-0 transition-transform duration-500 group-hover:scale-105"
-                          src={pkg.image}
-                        />
-                        <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
-                        <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 flex items-center gap-1.5 text-white/70">
-                          <Clock className="h-3.5 w-3.5" />
-                          <span className="text-[11px] font-semibold">{pkg.duration}</span>
-                        </div>
+              {destPackages.map((pkg) => (
+                <Link to={`/destinations/${id}/${pkg.id}`} key={pkg.id} className="group">
+                  <article className="bg-charcoal rounded-xl overflow-hidden border border-white/5 hover:border-white/10 transition-all duration-300 h-full flex flex-col">
+                    <div className="relative aspect-4/3 overflow-hidden">
+                      <img
+                        alt={pkg.title}
+                        loading="lazy"
+                        className="object-cover absolute h-full w-full inset-0 transition-transform duration-500 group-hover:scale-105"
+                        src={pkg.image}
+                      />
+                      <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
+                      <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 flex items-center gap-1.5 text-white/70">
+                        <Clock className="h-3.5 w-3.5" />
+                        <span className="text-[11px] font-semibold">{pkg.duration}</span>
                       </div>
-                      <div className="p-4 sm:p-5 flex-1 flex flex-col">
-                        <h3 className="font-heading text-lg sm:text-xl font-semibold text-white mb-1 group-hover:text-accent transition-colors">
-                          {pkg.title}
-                        </h3>
-                        <p className="text-[11px] text-white/30 mb-auto">{pkg.cities}</p>
-                        <div className="flex items-end justify-between pt-4 mt-4 border-t border-white/5">
-                          <div>
-                            <p className="text-[10px] text-white/30 uppercase tracking-wider">{pkg.priceNote}</p>
-                            <p className="font-heading text-xl sm:text-2xl font-semibold text-accent">{pkg.price}</p>
-                          </div>
-                          <span className="inline-flex items-center gap-1.5 text-white/30 font-semibold text-[11px] tracking-wider uppercase group-hover:text-accent group-hover:gap-2.5 transition-all">
-                            Book
-                            <ArrowRight className="h-3.5 w-3.5" />
-                          </span>
+                    </div>
+                    <div className="p-4 sm:p-5 flex-1 flex flex-col">
+                      <h3 className="font-heading text-lg sm:text-xl font-semibold text-white mb-1 group-hover:text-accent transition-colors">
+                        {pkg.title}
+                      </h3>
+                      <p className="text-[11px] text-white/30 mb-auto">{pkg.cities}</p>
+                      <div className="flex items-end justify-between pt-4 mt-4 border-t border-white/5">
+                        <div>
+                          <p className="text-[10px] text-white/30 uppercase tracking-wider">{pkg.priceNote}</p>
+                          <p className="font-heading text-xl sm:text-2xl font-semibold text-accent">{pkg.price}</p>
                         </div>
+                        <span className="inline-flex items-center gap-1.5 text-white/30 font-semibold text-[11px] tracking-wider uppercase group-hover:text-accent group-hover:gap-2.5 transition-all">
+                          Details
+                          <ArrowRight className="h-3.5 w-3.5" />
+                        </span>
                       </div>
-                    </article>
-                  </Link>
-                ))}
+                    </div>
+                  </article>
+                </Link>
+              ))}
             </div>
           </div>
         </section>

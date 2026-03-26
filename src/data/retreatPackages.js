@@ -10,6 +10,14 @@ export const retreatPackages = [
     price: '$7,800',
     priceNote: 'per person',
     image: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1200&q=80',
+    gallery: [
+      { src: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80', label: 'Private Beach at Khoj Allana' },
+      { src: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80', label: 'Infinity Pool Overlooking the Sea' },
+      { src: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80', label: 'Luxury Villa Interior' },
+      { src: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80', label: 'Chef\'s Table Dinner' },
+      { src: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80', label: 'Arabian Sea Sunset' },
+      { src: 'https://images.unsplash.com/photo-1583416750470-965b2707b355?w=800&q=80', label: 'Beachfront Wellness Session' },
+    ],
   },
   {
     id: 'khoj-skardu-mountain',
@@ -22,6 +30,14 @@ export const retreatPackages = [
     price: '$7,500',
     priceNote: 'per person',
     image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&q=80',
+    gallery: [
+      { src: 'https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?w=800&q=80', label: 'Shigar Fort Heritage Palace' },
+      { src: 'https://images.unsplash.com/photo-1614094082869-cd4e4b2f59b0?w=800&q=80', label: 'Skardu Lake at Sunrise' },
+      { src: 'https://images.unsplash.com/photo-1585409677983-0f6c41ca9c3b?w=800&q=80', label: 'Karakoram Mountain Pass' },
+      { src: 'https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&q=80', label: 'Glacier Trek Near Shigar' },
+      { src: 'https://images.unsplash.com/photo-1587474260584-136574528ed5?w=800&q=80', label: 'Shigar Valley River View' },
+      { src: 'https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=800&q=80', label: 'Golden Hour Over the Valley' },
+    ],
   },
   {
     id: 'bali-wellness',
@@ -34,6 +50,14 @@ export const retreatPackages = [
     price: '$8,200',
     priceNote: 'per person',
     image: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1200&q=80',
+    gallery: [
+      { src: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80', label: 'Tegallalang Rice Terraces' },
+      { src: 'https://images.unsplash.com/photo-1570789210967-2cac24de04d0?w=800&q=80', label: 'Seminyak Beach Sunset' },
+      { src: 'https://images.unsplash.com/photo-1577717903315-1691ae25ab3f?w=800&q=80', label: 'Tanah Lot Temple' },
+      { src: 'https://images.unsplash.com/photo-1604999333679-b86d54738315?w=800&q=80', label: 'Sacred Monkey Forest, Ubud' },
+      { src: 'https://images.unsplash.com/photo-1501179691627-eeaa65ea017c?w=800&q=80', label: 'Nusa Dua Resort Pool' },
+      { src: 'https://images.unsplash.com/photo-1555400038-63f5ba517a47?w=800&q=80', label: 'Balinese Spa Ritual' },
+    ],
   },
   {
     id: 'boracay-leadership',
@@ -46,6 +70,14 @@ export const retreatPackages = [
     price: '$7,200',
     priceNote: 'per person',
     image: 'https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=1200&q=80',
+    gallery: [
+      { src: 'https://images.unsplash.com/photo-1505881502353-a1986add3762?w=800&q=80', label: 'Boracay White Beach' },
+      { src: 'https://images.unsplash.com/photo-1573790387438-4da905039392?w=800&q=80', label: 'El Nido Lagoon, Palawan' },
+      { src: 'https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=800&q=80', label: 'Coron Island Hopping' },
+      { src: 'https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=800&q=80', label: 'Island Sunset Cruise' },
+      { src: 'https://images.unsplash.com/photo-1516576742002-3ea1efba0e3c?w=800&q=80', label: 'Chocolate Hills, Bohol' },
+      { src: 'https://images.unsplash.com/photo-1517030330234-94ab47673fd0?w=800&q=80', label: 'Palawan Kayaking' },
+    ],
   },
   {
     id: 'danang-strategy',
@@ -58,6 +90,14 @@ export const retreatPackages = [
     price: '$6,800',
     priceNote: 'per person',
     image: 'https://images.unsplash.com/photo-1557750255-c76072a7aad1?w=1200&q=80',
+    gallery: [
+      { src: 'https://images.unsplash.com/photo-1528127269322-539801943592?w=800&q=80', label: 'Golden Bridge, Da Nang' },
+      { src: 'https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=800&q=80', label: 'Hoi An Ancient Town' },
+      { src: 'https://images.unsplash.com/photo-1557750255-c76072a7aad1?w=800&q=80', label: 'Ha Long Bay Cruise' },
+      { src: 'https://images.unsplash.com/photo-1555921015-5532091f6026?w=800&q=80', label: 'Da Nang Beach Resort' },
+      { src: 'https://images.unsplash.com/photo-1513282790390-0a502e5783c4?w=800&q=80', label: 'Ho Chi Minh City Skyline' },
+      { src: 'https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=800&q=80', label: 'Marble Mountains' },
+    ],
   },
   {
     id: 'phuquoc-wellness',
@@ -70,6 +110,14 @@ export const retreatPackages = [
     price: '$7,400',
     priceNote: 'per person',
     image: 'https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=1200&q=80',
+    gallery: [
+      { src: 'https://images.unsplash.com/photo-1555921015-5532091f6026?w=800&q=80', label: 'Phu Quoc Turquoise Waters' },
+      { src: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=800&q=80', label: 'Beachfront Resort Villa' },
+      { src: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80', label: 'Island Infinity Pool' },
+      { src: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80', label: 'Sunset Over Phu Quoc' },
+      { src: 'https://images.unsplash.com/photo-1583416750470-965b2707b355?w=800&q=80', label: 'Spa & Wellness Pavilion' },
+      { src: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80', label: 'Pristine Island Beach' },
+    ],
   },
   {
     id: 'phuket-executive',
@@ -82,6 +130,14 @@ export const retreatPackages = [
     price: '$9,200',
     priceNote: 'per person',
     image: 'https://images.unsplash.com/photo-1528181304800-259b08848526?w=1200&q=80',
+    gallery: [
+      { src: 'https://images.unsplash.com/photo-1504214208698-ea1916a2195a?w=800&q=80', label: 'Phi Phi Islands Aerial' },
+      { src: 'https://images.unsplash.com/photo-1528181304800-259b08848526?w=800&q=80', label: 'Grand Palace, Bangkok' },
+      { src: 'https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?w=800&q=80', label: 'Thai Temple at Dusk' },
+      { src: 'https://images.unsplash.com/photo-1483683804023-6ccdb62f86ef?w=800&q=80', label: 'Maya Bay, Phuket' },
+      { src: 'https://images.unsplash.com/photo-1506665531195-3566af2b4dfa?w=800&q=80', label: 'Floating Market Visit' },
+      { src: 'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=800&q=80', label: 'Phuket Luxury Resort' },
+    ],
   },
   {
     id: 'galle-coastal',
@@ -94,6 +150,14 @@ export const retreatPackages = [
     price: '$6,500',
     priceNote: 'per person',
     image: 'https://images.unsplash.com/photo-1586016413664-864c0dd76f53?w=1200&q=80',
+    gallery: [
+      { src: 'https://images.unsplash.com/photo-1586016413664-864c0dd76f53?w=800&q=80', label: 'Galle Fort Ramparts' },
+      { src: 'https://images.unsplash.com/photo-1588598198321-9735fd52957b?w=800&q=80', label: 'Sigiriya Rock View' },
+      { src: 'https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=800&q=80', label: 'Ceylon Tea Plantations' },
+      { src: 'https://images.unsplash.com/photo-1546708770-599a0f9e2a42?w=800&q=80', label: 'Stilt Fishermen, Galle' },
+      { src: 'https://images.unsplash.com/photo-1572107998877-0c2dfc5e9770?w=800&q=80', label: 'Nine Arches Bridge' },
+      { src: 'https://images.unsplash.com/photo-1590123575668-53235af54de0?w=800&q=80', label: 'Bentota Beach Resort' },
+    ],
   },
   {
     id: 'mombasa-safari',
@@ -106,6 +170,14 @@ export const retreatPackages = [
     price: '$8,500',
     priceNote: 'per person',
     image: 'https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?w=1200&q=80',
+    gallery: [
+      { src: 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=800&q=80', label: 'Masai Mara Safari' },
+      { src: 'https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=800&q=80', label: 'Diani Beach Coastline' },
+      { src: 'https://images.unsplash.com/photo-1523805009345-7448845a9e53?w=800&q=80', label: 'Amboseli Elephant Herd' },
+      { src: 'https://images.unsplash.com/photo-1535941339077-2dd1c7963098?w=800&q=80', label: 'Nairobi City Skyline' },
+      { src: 'https://images.unsplash.com/photo-1611348586804-61bf6c080437?w=800&q=80', label: 'Savannah Sunset' },
+      { src: 'https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?w=800&q=80', label: 'Mount Kenya Backdrop' },
+    ],
   },
   {
     id: 'cancun-nearshore',
@@ -118,6 +190,14 @@ export const retreatPackages = [
     price: '$9,800',
     priceNote: 'per person',
     image: 'https://images.unsplash.com/photo-1512813195386-6cf811ad3542?w=1200&q=80',
+    gallery: [
+      { src: 'https://images.unsplash.com/photo-1510097467424-192d713fd8b2?w=800&q=80', label: 'Cancun Caribbean Coast' },
+      { src: 'https://images.unsplash.com/photo-1512813195386-6cf811ad3542?w=800&q=80', label: 'Tulum Cliffside Ruins' },
+      { src: 'https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?w=800&q=80', label: 'Sacred Cenote Swimming' },
+      { src: 'https://images.unsplash.com/photo-1570737209810-87a8e7245f88?w=800&q=80', label: 'Chichen Itza Pyramid' },
+      { src: 'https://images.unsplash.com/photo-1552074284-5e88ef1aef18?w=800&q=80', label: 'Riviera Maya Resort' },
+      { src: 'https://images.unsplash.com/photo-1547995886-6dc09384c6e6?w=800&q=80', label: 'Playa del Carmen Nightlife' },
+    ],
   },
   {
     id: 'kohsamui-mindfulness',
@@ -130,6 +210,14 @@ export const retreatPackages = [
     price: '$8,800',
     priceNote: 'per person',
     image: 'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=1200&q=80',
+    gallery: [
+      { src: 'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=800&q=80', label: 'Koh Samui Palm Beach' },
+      { src: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=800&q=80', label: 'Beachfront Villa Retreat' },
+      { src: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80', label: 'Resort Wellness Pool' },
+      { src: 'https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?w=800&q=80', label: 'Big Buddha Temple' },
+      { src: 'https://images.unsplash.com/photo-1583416750470-965b2707b355?w=800&q=80', label: 'Thai Spa Traditions' },
+      { src: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80', label: 'Koh Samui Sunset' },
+    ],
   },
   {
     id: 'islamabad-tech',
@@ -142,6 +230,14 @@ export const retreatPackages = [
     price: '$5,500',
     priceNote: 'per person',
     image: 'https://images.unsplash.com/photo-1586076243236-660e1032dde2?w=1200&q=80',
+    gallery: [
+      { src: 'https://images.unsplash.com/photo-1586076243236-660e1032dde2?w=800&q=80', label: 'Faisal Mosque, Islamabad' },
+      { src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80', label: 'STZA Tech Campus' },
+      { src: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&q=80', label: 'Innovation Hub Meeting' },
+      { src: 'https://images.unsplash.com/photo-1567604477524-82be2eeab004?w=800&q=80', label: 'Islamabad Cityscape' },
+      { src: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=80', label: 'Co-Working Space Tour' },
+      { src: 'https://images.unsplash.com/photo-1578922746465-d9d2e282bfab?w=800&q=80', label: 'Margalla Hills View' },
+    ],
   },
 ]
 

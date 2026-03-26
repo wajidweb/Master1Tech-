@@ -9,6 +9,14 @@ export const destinations = [
     packages: 2,
     image: 'https://i.tribune.com.pk/media/images/1113933-MazharNazir-1464769510/1113933-MazharNazir-1464769510.jpg?w=800&q=80',
     heroImage: 'https://i.tribune.com.pk/media/images/1113933-MazharNazir-1464769510/1113933-MazharNazir-1464769510.jpg?w=1920&q=80',
+    gallery: [
+      { src: 'https://images.unsplash.com/photo-1586076243236-660e1032dde2?w=800&q=80', label: 'Faisal Mosque, Islamabad' },
+      { src: 'https://images.unsplash.com/photo-1616587226157-48e49175ee20?w=800&q=80', label: 'Hunza Valley' },
+      { src: 'https://images.unsplash.com/photo-1609948543911-7375e0cdb6c4?w=800&q=80', label: 'Shangrila Resort, Skardu' },
+      { src: 'https://images.unsplash.com/photo-1597735881932-d9664c9bbcea?w=800&q=80', label: 'Karakoram Mountains' },
+      { src: 'https://images.unsplash.com/photo-1578922746465-d9d2e282bfab?w=800&q=80', label: 'Arabian Sea Coastline' },
+      { src: 'https://images.unsplash.com/photo-1567604477524-82be2eeab004?w=800&q=80', label: 'Badshahi Mosque, Lahore' },
+    ],
     resorts: [
       {
         id: 'khoj-allana',
@@ -19,6 +27,14 @@ export const destinations = [
         description: 'A private coastal retreat on the Arabian Sea offering ocean-view villas, beachfront spa, and gourmet dining. The perfect setting for wellness-focused executive retreats with a final-day tech park visit in Karachi.',
         highlights: ['Ocean-view retreats', 'Wellness & adventure', 'Luxury beach experiences', 'Karachi tech park tour'],
         image: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1200&q=80',
+        gallery: [
+          { src: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80', label: 'Beachfront Villa View' },
+          { src: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80', label: 'Luxury Resort Pool' },
+          { src: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80', label: 'Arabian Sea Sunset' },
+          { src: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80', label: 'Ocean-View Suite' },
+          { src: 'https://images.unsplash.com/photo-1583416750470-965b2707b355?w=800&q=80', label: 'Beachfront Spa Retreat' },
+          { src: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80', label: 'Gourmet Dining Experience' },
+        ],
       },
       {
         id: 'khoj-shigar',
@@ -29,6 +45,14 @@ export const destinations = [
         description: 'Set against the dramatic Karakoram mountains in the Shigar Valley, this heritage-inspired luxury lodge near the 400-year-old Shigar Fort offers mountain-view suites, altitude wellness, and guided glacier excursions. Ideal for leadership retreats with a final-day tech tour in Islamabad.',
         highlights: ['Leadership retreats', 'Cultural & nature experiences', 'Heritage site access', 'Islamabad tech tour'],
         image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&q=80',
+        gallery: [
+          { src: 'https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?w=800&q=80', label: 'Shigar Fort Heritage Palace' },
+          { src: 'https://images.unsplash.com/photo-1587474260584-136574528ed5?w=800&q=80', label: 'Shigar Valley River View' },
+          { src: 'https://images.unsplash.com/photo-1614094082869-cd4e4b2f59b0?w=800&q=80', label: 'Skardu Lake at Sunrise' },
+          { src: 'https://images.unsplash.com/photo-1585409677983-0f6c41ca9c3b?w=800&q=80', label: 'Karakoram Mountain Pass' },
+          { src: 'https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&q=80', label: 'Glacier Trek Near Shigar' },
+          { src: 'https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=800&q=80', label: 'Golden Hour Over the Valley' },
+        ],
       },
     ],
   },
@@ -42,6 +66,14 @@ export const destinations = [
     packages: 3,
     image: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80',
     heroImage: 'https://images.unsplash.com/photo-1555400038-63f5ba517a47?w=1920&q=80',
+    gallery: [
+      { src: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80', label: 'Bali Rice Terraces' },
+      { src: 'https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=800&q=80', label: 'Uluwatu Temple' },
+      { src: 'https://images.unsplash.com/photo-1570789210967-2cac24de04d0?w=800&q=80', label: 'Bali Beach Sunset' },
+      { src: 'https://images.unsplash.com/photo-1604999333679-b86d54738315?w=800&q=80', label: 'Ubud Monkey Forest' },
+      { src: 'https://images.unsplash.com/photo-1577717903315-1691ae25ab3f?w=800&q=80', label: 'Tanah Lot Temple' },
+      { src: 'https://images.unsplash.com/photo-1501179691627-eeaa65ea017c?w=800&q=80', label: 'Nusa Penida Cliffs' },
+    ],
   },
   {
     id: 'philippines',
@@ -53,6 +85,14 @@ export const destinations = [
     packages: 2,
     image: 'https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=800&q=80',
     heroImage: 'https://images.unsplash.com/photo-1573790387438-4da905039392?w=1920&q=80',
+    gallery: [
+      { src: 'https://images.unsplash.com/photo-1573790387438-4da905039392?w=800&q=80', label: 'El Nido, Palawan' },
+      { src: 'https://images.unsplash.com/photo-1505881502353-a1986add3762?w=800&q=80', label: 'Boracay White Beach' },
+      { src: 'https://images.unsplash.com/photo-1516576742002-3ea1efba0e3c?w=800&q=80', label: 'Chocolate Hills, Bohol' },
+      { src: 'https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=800&q=80', label: 'Coron Lagoon' },
+      { src: 'https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=800&q=80', label: 'Cebu Island Hopping' },
+      { src: 'https://images.unsplash.com/photo-1517030330234-94ab47673fd0?w=800&q=80', label: 'Philippine Sunset' },
+    ],
   },
   {
     id: 'vietnam',
@@ -64,6 +104,14 @@ export const destinations = [
     packages: 2,
     image: 'https://images.unsplash.com/photo-1557750255-c76072a7aad1?w=800&q=80',
     heroImage: 'https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=1920&q=80',
+    gallery: [
+      { src: 'https://images.unsplash.com/photo-1557750255-c76072a7aad1?w=800&q=80', label: 'Ha Long Bay' },
+      { src: 'https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=800&q=80', label: 'Hoi An Lanterns' },
+      { src: 'https://images.unsplash.com/photo-1528127269322-539801943592?w=800&q=80', label: 'Golden Bridge, Da Nang' },
+      { src: 'https://images.unsplash.com/photo-1555921015-5532091f6026?w=800&q=80', label: 'Phu Quoc Beach' },
+      { src: 'https://images.unsplash.com/photo-1513282790390-0a502e5783c4?w=800&q=80', label: 'Mekong Delta' },
+      { src: 'https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=800&q=80', label: 'Ninh Binh Landscape' },
+    ],
   },
   {
     id: 'thailand',
@@ -75,6 +123,14 @@ export const destinations = [
     packages: 3,
     image: 'https://images.unsplash.com/photo-1528181304800-259b08848526?w=800&q=80',
     heroImage: 'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=1920&q=80',
+    gallery: [
+      { src: 'https://images.unsplash.com/photo-1528181304800-259b08848526?w=800&q=80', label: 'Grand Palace, Bangkok' },
+      { src: 'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=800&q=80', label: 'Koh Samui Beach' },
+      { src: 'https://images.unsplash.com/photo-1504214208698-ea1916a2195a?w=800&q=80', label: 'Phi Phi Islands' },
+      { src: 'https://images.unsplash.com/photo-1506665531195-3566af2b4dfa?w=800&q=80', label: 'Floating Market' },
+      { src: 'https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?w=800&q=80', label: 'Thai Temple at Sunset' },
+      { src: 'https://images.unsplash.com/photo-1483683804023-6ccdb62f86ef?w=800&q=80', label: 'Maya Bay, Krabi' },
+    ],
   },
   {
     id: 'sri-lanka',
@@ -86,6 +142,14 @@ export const destinations = [
     packages: 2,
     image: 'https://images.unsplash.com/photo-1586016413664-864c0dd76f53?w=800&q=80',
     heroImage: 'https://images.unsplash.com/photo-1588598198321-9735fd52957b?w=1920&q=80',
+    gallery: [
+      { src: 'https://images.unsplash.com/photo-1588598198321-9735fd52957b?w=800&q=80', label: 'Sigiriya Rock Fortress' },
+      { src: 'https://images.unsplash.com/photo-1586016413664-864c0dd76f53?w=800&q=80', label: 'Galle Fort' },
+      { src: 'https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=800&q=80', label: 'Tea Plantations' },
+      { src: 'https://images.unsplash.com/photo-1546708770-599a0f9e2a42?w=800&q=80', label: 'Stilt Fishermen' },
+      { src: 'https://images.unsplash.com/photo-1572107998877-0c2dfc5e9770?w=800&q=80', label: 'Nine Arches Bridge' },
+      { src: 'https://images.unsplash.com/photo-1590123575668-53235af54de0?w=800&q=80', label: 'Bentota Beach' },
+    ],
   },
   {
     id: 'kenya',
@@ -97,6 +161,14 @@ export const destinations = [
     packages: 2,
     image: 'https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?w=800&q=80',
     heroImage: 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1920&q=80',
+    gallery: [
+      { src: 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=800&q=80', label: 'Masai Mara Safari' },
+      { src: 'https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?w=800&q=80', label: 'Mount Kenya' },
+      { src: 'https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=800&q=80', label: 'Diani Beach' },
+      { src: 'https://images.unsplash.com/photo-1535941339077-2dd1c7963098?w=800&q=80', label: 'Nairobi Skyline' },
+      { src: 'https://images.unsplash.com/photo-1523805009345-7448845a9e53?w=800&q=80', label: 'Amboseli Elephants' },
+      { src: 'https://images.unsplash.com/photo-1611348586804-61bf6c080437?w=800&q=80', label: 'Kenyan Sunset' },
+    ],
   },
   {
     id: 'mexico',
@@ -108,5 +180,13 @@ export const destinations = [
     packages: 2,
     image: 'https://images.unsplash.com/photo-1512813195386-6cf811ad3542?w=800&q=80',
     heroImage: 'https://images.unsplash.com/photo-1510097467424-192d713fd8b2?w=1920&q=80',
+    gallery: [
+      { src: 'https://images.unsplash.com/photo-1510097467424-192d713fd8b2?w=800&q=80', label: 'Cancun Coastline' },
+      { src: 'https://images.unsplash.com/photo-1512813195386-6cf811ad3542?w=800&q=80', label: 'Tulum Ruins' },
+      { src: 'https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?w=800&q=80', label: 'Cenote Swimming' },
+      { src: 'https://images.unsplash.com/photo-1570737209810-87a8e7245f88?w=800&q=80', label: 'Chichen Itza' },
+      { src: 'https://images.unsplash.com/photo-1552074284-5e88ef1aef18?w=800&q=80', label: 'Riviera Maya Beach' },
+      { src: 'https://images.unsplash.com/photo-1547995886-6dc09384c6e6?w=800&q=80', label: 'Playa del Carmen' },
+    ],
   },
 ]
