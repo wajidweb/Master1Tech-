@@ -117,7 +117,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-linear-to-b from-charcoal/60 via-transparent to-charcoal" />
       </div>
 
-      <div className="relative z-10 container-wide text-center text-white px-4 sm:px-6 pt-20 sm:pt-0 sm:-mt-16 pb-16">
+      <div className="relative z-10 container-wide text-center text-white px-4 sm:px-6 pt-24 sm:pt-28 pb-16">
         <div className="max-w-4xl mx-auto">
           <p className="text-accent text-[11px] sm:text-xs font-semibold tracking-[0.3em] uppercase mb-6 sm:mb-8">
             Executive Retreats &middot; GCC Advisory
