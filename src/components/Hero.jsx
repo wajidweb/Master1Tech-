@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { ChevronDown, ArrowRight } from 'lucide-react'
 
 const retreatTypes = [
@@ -21,6 +21,17 @@ const destinationOptions = [
 ]
 
 const groupSizes = ['4', '6', '8', '10', '12', '15', '20']
+
+const destinationRoutes = {
+  'Pakistan': 'pakistan',
+  'Indonesia': 'indonesia',
+  'Philippines': 'philippines',
+  'Vietnam': 'vietnam',
+  'Thailand': 'thailand',
+  'Sri Lanka': 'sri-lanka',
+  'Kenya': 'kenya',
+  'Mexico': 'mexico',
+}
 
 function Dropdown({ options, selected, onSelect, label, activeId, id, onToggle }) {
   const ref = useRef(null)
@@ -82,11 +93,20 @@ function Dropdown({ options, selected, onSelect, label, activeId, id, onToggle }
 }
 
 export default function Hero() {
+  const navigate = useNavigate()
   const [retreatType, setRetreatType] = useState('')
   const [destination, setDestination] = useState('')
   const [groupSize, setGroupSize] = useState('')
   const [activeDropdown, setActiveDropdown] = useState(null)
   const containerRef = useRef(null)
+
+  const handleFindRetreat = () => {
+    if (destination && destinationRoutes[destination]) {
+      navigate(`/destinations/${destinationRoutes[destination]}`)
+    } else {
+      navigate('/destinations')
+    }
+  }
 
   const handleClickOutside = useCallback((e) => {
     if (containerRef.current && !containerRef.current.contains(e.target)) {
@@ -167,13 +187,13 @@ export default function Hero() {
               />
             </div>
             <div className="relative z-0">
-              <Link
-                to="/plan-my-retreat"
-                className="group inline-flex items-center justify-center gap-2.5 whitespace-nowrap font-semibold transition-all duration-300 rounded-xl bg-accent text-charcoal hover:bg-accent-light h-12 sm:h-14 px-8 sm:px-10 text-[13px] sm:text-sm tracking-widest uppercase w-full"
+              <button
+                onClick={handleFindRetreat}
+                className="group inline-flex items-center justify-center gap-2.5 whitespace-nowrap font-semibold transition-all duration-300 rounded-xl bg-accent text-charcoal hover:bg-accent-light h-12 sm:h-14 px-8 sm:px-10 text-[13px] sm:text-sm tracking-widest uppercase w-full cursor-pointer"
               >
                 Find My Retreat
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </Link>
+              </button>
             </div>
           </div>
         </div>
