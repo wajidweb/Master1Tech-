@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react'
 
 const styles = [
   {
-    title: 'Beach Retreats',
+    title: 'Beaches',
     tagline: 'Coastal Rejuvenation',
     image: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1200&q=80',
     link: '/retreat-styles?style=wellness-strategy',

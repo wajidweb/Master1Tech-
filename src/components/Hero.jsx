@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
-import { ChevronDown, ArrowRight, MapPin, Users, Sparkles } from 'lucide-react'
+import { ChevronDown, ArrowRight } from 'lucide-react'
 
 const retreatTypes = [
   { value: 'Executive Retreat', icon: '✦' },
@@ -22,7 +22,7 @@ const destinationOptions = [
 
 const groupSizes = ['4', '6', '8', '10', '12', '15', '20']
 
-function Dropdown({ options, selected, onSelect, label, icon: Icon, activeId, id, onToggle }) {
+function Dropdown({ options, selected, onSelect, label, activeId, id, onToggle }) {
   const ref = useRef(null)
   const isOpen = activeId === id
 
@@ -39,9 +39,6 @@ function Dropdown({ options, selected, onSelect, label, icon: Icon, activeId, id
         aria-haspopup="listbox"
         aria-expanded={isOpen}
       >
-        <div className="shrink-0 w-8 h-8 rounded-lg bg-white/6 flex items-center justify-center">
-          <Icon className={`w-4 h-4 ${selected ? 'text-accent' : 'text-white/30'}`} />
-        </div>
         <div className="flex-1 min-w-0">
           <p className="text-[10px] text-white/30 tracking-wider uppercase font-semibold mb-0.5">{label}</p>
           <p className={`text-sm font-semibold truncate ${selected ? 'text-white' : 'text-white/40'}`}>
@@ -144,7 +141,7 @@ export default function Hero() {
                 selected={retreatType}
                 onSelect={setRetreatType}
                 label="Retreat Style"
-                icon={Sparkles}
+
                 activeId={activeDropdown}
                 onToggle={setActiveDropdown}
               />
@@ -154,7 +151,7 @@ export default function Hero() {
                 selected={destination}
                 onSelect={setDestination}
                 label="Destination"
-                icon={MapPin}
+
                 activeId={activeDropdown}
                 onToggle={setActiveDropdown}
               />
@@ -164,7 +161,7 @@ export default function Hero() {
                 selected={groupSize}
                 onSelect={setGroupSize}
                 label="Group Size"
-                icon={Users}
+
                 activeId={activeDropdown}
                 onToggle={setActiveDropdown}
               />
