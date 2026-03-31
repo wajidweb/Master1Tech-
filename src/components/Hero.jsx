@@ -3,21 +3,21 @@ import { useNavigate } from 'react-router-dom'
 import { ChevronDown, ArrowRight } from 'lucide-react'
 
 const retreatTypes = [
-  { value: 'Executive Retreat', icon: '✦' },
-  { value: 'Leadership Immersion', icon: '◆' },
-  { value: 'Wellness & Strategy', icon: '❖' },
-  { value: 'GCC Discovery', icon: '◈' },
+  { value: 'Executive Retreat' },
+  { value: 'Leadership Immersion' },
+  { value: 'Wellness & Strategy' },
+  { value: 'GCC Discovery' },
 ]
 
 const destinationOptions = [
-  { value: 'Pakistan', flag: '🇵🇰' },
-  { value: 'Indonesia', flag: '🇮🇩' },
-  { value: 'Philippines', flag: '🇵🇭' },
-  { value: 'Vietnam', flag: '🇻🇳' },
-  { value: 'Thailand', flag: '🇹🇭' },
-  { value: 'Sri Lanka', flag: '🇱🇰' },
-  { value: 'Kenya', flag: '🇰🇪' },
-  { value: 'Mexico', flag: '🇲🇽' },
+  { value: 'Pakistan' },
+  { value: 'Indonesia' },
+  { value: 'Philippines' },
+  { value: 'Vietnam' },
+  { value: 'Thailand' },
+  { value: 'Sri Lanka' },
+  { value: 'Kenya' },
+  { value: 'Mexico' },
 ]
 
 const groupSizes = ['4', '6', '8', '10', '12', '15', '20']
@@ -42,7 +42,7 @@ function Dropdown({ options, selected, onSelect, label, activeId, id, onToggle }
       <button
         type="button"
         onClick={() => onToggle(isOpen ? null : id)}
-        className={`w-full flex items-center gap-3 px-4 py-3.5 sm:py-4 rounded-xl transition-all duration-200 text-left ${
+        className={`w-full flex items-center gap-3 px-4 py-3 sm:py-3.5 rounded-xl transition-all duration-200 text-left ${
           isOpen
             ? 'bg-white/10 border-accent/30 ring-1 ring-accent/20'
             : 'bg-white/3 hover:bg-white/7 border-white/6'
@@ -51,8 +51,8 @@ function Dropdown({ options, selected, onSelect, label, activeId, id, onToggle }
         aria-expanded={isOpen}
       >
         <div className="flex-1 min-w-0">
-          <p className="text-[10px] text-white/30 tracking-wider uppercase font-semibold mb-0.5">{label}</p>
-          <p className={`text-sm font-semibold truncate ${selected ? 'text-white' : 'text-white/40'}`}>
+          <p className="text-[10px] text-white/30 tracking-wider uppercase font-medium mb-0.5">{label}</p>
+          <p className={`text-sm font-light truncate ${selected ? 'text-white' : 'text-white/45'}`}>
             {selected || `Select ${label}`}
           </p>
         </div>
@@ -77,10 +77,7 @@ function Dropdown({ options, selected, onSelect, label, activeId, id, onToggle }
                   }`}
                   onClick={() => { onSelect(val); onToggle(null) }}
                 >
-                  {opt.flag && <span className="text-base">{opt.flag}</span>}
-                  {opt.icon && <span className="text-[11px] text-accent/60">{opt.icon}</span>}
-                  {!opt.flag && !opt.icon && <span className="w-5 text-center text-white/20 text-xs">{val}</span>}
-                  <span className="font-semibold">{val}</span>
+                  <span className="font-light">{val}</span>
                   {isSelected && <span className="ml-auto text-accent text-xs">✓</span>}
                 </button>
               )
@@ -126,15 +123,15 @@ export default function Hero() {
   }, [activeDropdown, handleClickOutside])
 
   return (
-    <section className="relative h-svh flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-svh flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
         <img
           alt="Luxury executive retreat destination"
-          className="object-cover object-center absolute h-full w-full inset-0"
-          src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=2070&q=80"
+          className="object-cover object-center absolute h-full w-full inset-0 scale-[1.02]"
+          src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=2070&q=80"
         />
-        <div className="absolute inset-0 bg-black/70" />
-        <div className="absolute inset-0 bg-linear-to-b from-charcoal/60 via-transparent to-charcoal" />
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-linear-to-b from-charcoal/40 via-charcoal/20 to-charcoal/70" />
       </div>
 
       <div className="relative z-10 container-wide text-center text-white px-4 sm:px-6 pt-24 sm:pt-28 pb-16">
@@ -142,19 +139,20 @@ export default function Hero() {
           <p className="text-accent text-[11px] sm:text-xs font-semibold tracking-[0.3em] uppercase mb-6 sm:mb-8">
             Executive Retreats &middot; GCC Advisory
           </p>
-          <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-semibold leading-[0.95] mb-6 sm:mb-8">
-            Where <span className="text-accent">Leaders</span>
+          <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-[-0.02em] leading-[1.02] mb-5 sm:mb-7 max-w-2xl mx-auto">
+            Beyond <span className="text-accent italic">Travel.</span>
             <br />
-            Discover What's{' '}
-            <span className="font-bold">Next</span>
+            Into <span className="text-white">Opportunity.</span>
           </h1>
-          <p className="text-sm sm:text-base md:text-lg text-white/50 mb-8 sm:mb-12 max-w-xl mx-auto font-semibold leading-relaxed tracking-wide">
-            Luxury wellness, strategic GCC insights, and transformative
-            leadership across <strong className="text-white/80">8 emerging markets</strong>.
+          <p className="text-sm sm:text-base md:text-lg text-white/75 mb-8 sm:mb-10 max-w-2xl mx-auto font-medium leading-relaxed">
+            Curated retreats where leaders explore new markets, build powerful <br /> networks, and return with a sharper vision.
           </p>
 
-          <div ref={containerRef} className="liquid-glass rounded-2xl p-4 sm:p-5 md:p-6 max-w-3xl mx-auto">
-            <div className="relative z-[60] flex flex-col sm:flex-row gap-2.5 sm:gap-3 mb-4">
+          <div
+            ref={containerRef}
+            className="liquid-glass rounded-2xl p-3.5 sm:p-4 md:p-5 max-w-3xl mx-auto border border-white/15 backdrop-blur-xl shadow-[0_24px_70px_rgba(0,0,0,0.35)]"
+          >
+            <div className="relative z-[60] grid grid-cols-1 md:grid-cols-3 gap-2.5 sm:gap-3 mb-4">
               <Dropdown
                 id="retreat"
                 options={retreatTypes}
@@ -189,7 +187,7 @@ export default function Hero() {
             <div className="relative z-0">
               <button
                 onClick={handleFindRetreat}
-                className="group inline-flex items-center justify-center gap-2.5 whitespace-nowrap font-semibold transition-all duration-300 rounded-xl bg-accent text-charcoal hover:bg-accent-light h-12 sm:h-14 px-8 sm:px-10 text-[13px] sm:text-sm tracking-widest uppercase w-full cursor-pointer"
+                className="group inline-flex items-center justify-center gap-2.5 whitespace-nowrap font-medium transition-all duration-300 rounded-xl bg-accent text-charcoal hover:bg-accent-light h-11 sm:h-12 px-7 sm:px-9 text-[12px] sm:text-[13px] tracking-[0.08em] uppercase w-full md:w-auto md:min-w-[240px] cursor-pointer"
               >
                 Find My Retreat
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />

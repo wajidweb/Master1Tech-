@@ -1,22 +1,5 @@
 import { useState, useCallback, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import {
-  ArrowRight,
-  MapPin,
-  Clock,
-  Calendar,
-  Users,
-  Star,
-  ChevronDown,
-  Sparkles,
-  Utensils,
-  Plane,
-  Building,
-  Camera,
-  X,
-  ChevronLeft,
-  ChevronRight,
-} from 'lucide-react'
 import { destinations } from '../data/destinations'
 import { retreatPackages } from '../data/retreatPackages'
 
@@ -226,7 +209,7 @@ export default function TripDetailPage() {
 
   return (
     <>
-      {/* Hero — bottom-aligned */}
+      {/* Hero — simple, cinematic overlay */}
       <section className="relative min-h-[55vh] md:min-h-[65vh] overflow-hidden flex items-end">
         <div className="absolute inset-0">
           <img
@@ -234,44 +217,15 @@ export default function TripDetailPage() {
             className="object-cover object-center absolute h-full w-full inset-0"
             src={heroImage}
           />
-          <div className="absolute inset-0 bg-black/55" />
-          <div className="absolute inset-0 bg-linear-to-t from-charcoal via-charcoal/30 to-black/30" />
+          <div className="absolute inset-0 bg-black/60" />
+          <div className="absolute inset-0 bg-linear-to-t from-charcoal via-charcoal/40 to-transparent" />
         </div>
 
         <div className="relative w-full z-10 p-4 sm:p-6 md:p-8 pb-6 md:pb-10">
-          <div className="container-wide">
-            <nav className="flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs text-white/50 tracking-wider uppercase mb-3 md:mb-4">
-              <Link to="/" className="hover:text-white transition-colors">Home</Link>
-              <span className="text-white/20">/</span>
-              <Link to="/destinations" className="hover:text-white transition-colors">Destinations</Link>
-              <span className="text-white/20">/</span>
-              <Link to={`/destinations/${id}`} className="hover:text-white transition-colors">{dest.name}</Link>
-              <span className="text-white/20">/</span>
-              <span className="text-white/70 truncate max-w-[120px] sm:max-w-none">{title}</span>
-            </nav>
-
-            <p className="text-accent font-semibold mb-1.5 md:mb-2 text-xs sm:text-sm" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}>
-              {subtitle}
-            </p>
-
-            <h1 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-white mb-3 md:mb-4 max-w-4xl leading-tight" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.6)' }}>
+          <div className="container-wide max-w-5xl">
+            <h1 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-3 leading-tight">
               {title}
             </h1>
-
-            <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-white text-sm">
-              <span className="flex items-center gap-1.5">
-                <Calendar className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                {duration}
-              </span>
-              <span className="flex items-center gap-1.5">
-                <MapPin className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                {location}
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Star className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-accent" fill="currentColor" />
-                5.0 rating
-              </span>
-            </div>
           </div>
         </div>
       </section>
@@ -285,97 +239,118 @@ export default function TripDetailPage() {
             <div className="lg:col-span-7 xl:col-span-8">
 
               {/* About This Trip */}
-              <div className="bg-surface rounded-2xl p-5 sm:p-6 md:p-8 border border-white/5 mb-6 md:mb-8">
+              <div className="rounded-2xl p-5 sm:p-6 md:p-8 border border-white/10 bg-white/[0.03] backdrop-blur-xl mb-6 md:mb-8 shadow-[0_20px_80px_rgba(0,0,0,0.6)]">
                 <h2 className="font-heading text-xl sm:text-2xl font-semibold text-white mb-3 md:mb-4">About This Trip</h2>
-                <p className="text-white/60 text-sm sm:text-base leading-relaxed mb-5 md:mb-6">
+                <p className="text-white/70 text-sm sm:text-base leading-relaxed mb-5 md:mb-6">
                   {description}
                 </p>
-
-                {/* Retreat Vibes */}
-                <div className="mb-5 md:mb-6">
-                  <h3 className="font-heading font-semibold text-white mb-2 md:mb-3 text-sm sm:text-base">Retreat Vibes</h3>
-                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                    {retreatVibes.map((v) => (
-                      <span key={v.label} className="inline-flex items-center gap-1.5 rounded-full font-medium text-xs sm:text-sm px-3 py-1 bg-accent/10 border border-accent/20 text-accent">
-                        <span className="text-xs">{v.icon}</span>{v.label}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Perfect For */}
-                <div className="mb-5 md:mb-6">
-                  <h3 className="font-heading font-semibold text-white mb-2 md:mb-3 text-sm sm:text-base">Perfect For</h3>
-                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                    {perfectFor.map((p) => (
-                      <span key={p} className="inline-flex items-center gap-1.5 text-xs sm:text-sm bg-white/5 text-white/70 px-3 py-1 rounded-full border border-white/10">
-                        <Users className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
-                        {p}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Highlights */}
-                <div>
-                  <h3 className="font-heading font-semibold text-white mb-2 md:mb-3 text-sm sm:text-base">Highlights</h3>
-                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                    {highlights.map((h) => (
-                      <span key={h} className="inline-flex items-center gap-1.5 text-xs sm:text-sm bg-surface-light text-white/60 px-3 py-1 rounded-full border border-white/5">
-                        <Star className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-accent" fill="currentColor" />
-                        {h}
-                      </span>
-                    ))}
-                  </div>
-                </div>
               </div>
 
-              {/* Day-by-Day Itinerary */}
+              {/* Day-by-Day Itinerary + mood gallery strip */}
               <div className="mb-6 md:mb-8">
-                <h2 className="font-heading text-xl sm:text-2xl font-semibold text-white mb-4 md:mb-6">Day by Day Itinerary</h2>
+                <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between mb-4 md:mb-6">
+                  <div>
+                    <h2 className="font-heading text-xl sm:text-2xl font-medium text-white mb-1">Day by Day Itinerary</h2>
+                    <p className="text-white/45 text-xs sm:text-sm max-w-md">
+                      Follow the flow from arrival to departure, with a visual sense of each moment.
+                    </p>
+                  </div>
+                  {galleryImages.length > 0 && (
+                    <div className="hidden md:flex items-center gap-2 text-[11px] text-white/40">
+                      <span className="uppercase tracking-[0.2em]">Trip Highlights</span>
+                    </div>
+                  )}
+                </div>
+
+                {/* small horizontal gallery moved into each day below */}
                 <div className="space-y-3">
                   {itinerary.map((day, i) => (
-                    <div key={i} className="bg-surface rounded-xl border border-white/5 overflow-hidden">
+                    <div
+                      key={i}
+                      className={`group relative rounded-2xl border overflow-hidden transition-all duration-500 will-change-transform ${
+                        openDay === i
+                          ? 'border-accent/35 bg-white/[0.06] shadow-[0_26px_110px_rgba(0,0,0,0.75)]'
+                          : 'border-white/10 bg-white/[0.03] shadow-[0_18px_70px_rgba(0,0,0,0.55)] hover:border-accent/30 hover:bg-white/[0.05]'
+                      }`}
+                      style={{ transform: 'translateZ(0)' }}
+                    >
                       <button
                         onClick={() => setOpenDay(openDay === i ? -1 : i)}
-                        className="w-full text-left p-4 sm:p-5 flex items-start gap-3 sm:gap-4 hover:bg-white/[0.02] transition-colors"
+                        className="w-full text-left p-4 sm:p-5 flex items-start gap-3 sm:gap-4 transition-all duration-500 group-hover:translate-y-[-1px]"
                       >
-                        <div className="shrink-0 w-14 sm:w-16 h-14 sm:h-16 rounded-xl bg-accent/10 border border-accent/20 flex flex-col items-center justify-center">
-                          <span className="text-accent text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider leading-tight text-center">
+                        <div className="shrink-0 w-14 sm:w-16 h-14 sm:h-16 rounded-2xl border border-white/15 bg-linear-to-br from-white/10 via-white/[0.03] to-black/20 backdrop-blur-xl shadow-[0_12px_40px_rgba(0,0,0,0.55)] flex flex-col items-center justify-center relative overflow-hidden">
+                          <div className="absolute -top-6 -left-6 w-20 h-20 rounded-full bg-accent/20 blur-2xl" />
+                          <span className="relative text-accent text-[10px] sm:text-[11px] font-medium uppercase tracking-wider leading-tight text-center">
                             {day.day}
                           </span>
                         </div>
                         <div className="flex-1 min-w-0">
-                          <h3 className="font-heading text-base sm:text-lg font-semibold text-white mb-1">
+                          <h3 className="font-heading text-base sm:text-lg font-medium text-white mb-1">
                             {day.title}
                           </h3>
-                          <div className="flex flex-wrap items-center gap-3 text-white/40 text-xs sm:text-sm">
-                            <span className="flex items-center gap-1">
-                              <MapPin className="h-3 w-3" />{day.location}
-                            </span>
-                            <span className="flex items-center gap-1">
-                              <Utensils className="h-3 w-3" />{day.meals}
-                            </span>
-                          </div>
+                          <p className="text-white/50 text-xs sm:text-sm">
+                            {day.location} &middot; {day.meals}
+                          </p>
                         </div>
-                        <ChevronDown className={`w-5 h-5 shrink-0 text-white/30 transition-transform duration-200 mt-1 ${openDay === i ? 'rotate-180 text-accent' : ''}`} />
+                        <span
+                          className={`ml-2 text-xs font-medium tracking-wide transition-all duration-300 mt-1 ${
+                            openDay === i ? 'text-accent' : 'text-white/45 group-hover:text-white/70'
+                          }`}
+                        >
+                          {openDay === i ? 'Hide' : 'View'}
+                        </span>
                       </button>
 
                       {openDay === i && (
                         <div className="px-4 sm:px-5 pb-4 sm:pb-5 pt-0 animate-accordion">
-                          <div className="ml-[4.25rem] sm:ml-[5rem] border-l border-accent/10 pl-4 sm:pl-5">
-                            <p className="text-white/50 text-sm leading-relaxed mb-5">{day.description}</p>
+                          <div className="ml-[4.25rem] sm:ml-[5rem] border-l border-accent/15 pl-4 sm:pl-5 relative">
+                            <div className="absolute -left-[1px] top-0 bottom-0 w-px bg-linear-to-b from-accent/40 via-accent/15 to-transparent" />
+                            <p className="text-white/60 text-sm leading-relaxed mb-5">{day.description}</p>
+
+                            {/* Inline gallery for this day */}
+                            {galleryImages.length > 0 && (
+                              <div className="mb-5">
+                                <div className="flex gap-2 sm:gap-3 overflow-x-auto pb-1 -mx-1 px-1" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                                  {galleryImages
+                                    .slice(i * 2, i * 2 + 2)
+                                    .map((img, idx) => {
+                                      const globalIndex = i * 2 + idx
+                                      return (
+                                        <button
+                                          type="button"
+                                          key={globalIndex}
+                                          onClick={() => setLightbox(globalIndex)}
+                                          className="relative w-36 sm:w-44 h-24 sm:h-28 rounded-2xl overflow-hidden border border-white/12 hover:border-accent/45 transition-all duration-500 flex-shrink-0 shadow-[0_14px_55px_rgba(0,0,0,0.65)] hover:shadow-[0_22px_75px_rgba(0,0,0,0.8)] hover:-translate-y-0.5"
+                                        >
+                                          <img
+                                            alt={img.label}
+                                            loading="lazy"
+                                            className="object-cover absolute h-full w-full inset-0 transition-transform duration-700 hover:scale-110"
+                                            src={img.src}
+                                          />
+                                          <div className="absolute inset-0 bg-black/30 group-hover:bg-black/45 transition-colors" />
+                                          <div className="absolute bottom-1.5 left-2 right-2">
+                                            <p className="text-[10px] text-white/80 font-medium truncate">
+                                              {img.label}
+                                            </p>
+                                          </div>
+                                        </button>
+                                      )
+                                    })}
+                                </div>
+                              </div>
+                            )}
 
                             {/* Activities */}
                             {day.activities?.length > 0 && (
                               <div className="mb-5">
-                                <h4 className="font-semibold text-white text-xs sm:text-sm mb-3 flex items-center gap-2">
-                                  <Clock className="h-3.5 w-3.5 text-accent" />Activities
+                                <h4 className="font-medium text-white text-xs sm:text-sm mb-3">
+                                  Activities
                                 </h4>
                                 <div className="space-y-2">
                                   {day.activities.map((activity, idx) => (
                                     <div key={idx} className="animate-activity flex items-center gap-3 bg-white/[0.03] rounded-lg px-3.5 py-2.5 border border-white/5" style={{ animationDelay: `${idx * 80}ms` }}>
-                                      <span className="shrink-0 w-7 h-7 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center text-accent text-xs font-semibold">
+                                      <span className="shrink-0 w-7 h-7 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center text-accent text-xs font-medium">
                                         {idx + 1}
                                       </span>
                                       <span className="text-white/60 text-sm">{activity}</span>
@@ -385,19 +360,6 @@ export default function TripDetailPage() {
                               </div>
                             )}
 
-                            {/* Highlights */}
-                            <div>
-                              <h4 className="font-semibold text-white text-xs sm:text-sm mb-2 flex items-center gap-2">
-                                <Sparkles className="h-3.5 w-3.5 text-accent" />Highlights
-                              </h4>
-                              <div className="flex flex-wrap gap-1.5">
-                                {day.highlights.map((h) => (
-                                  <span key={h} className="text-[11px] sm:text-xs bg-white/5 text-white/50 px-2.5 py-1 rounded-full border border-white/5">
-                                    {h}
-                                  </span>
-                                ))}
-                              </div>
-                            </div>
                           </div>
                         </div>
                       )}
@@ -407,7 +369,7 @@ export default function TripDetailPage() {
               </div>
 
               {/* The Journey — unified card */}
-              <div className="bg-surface rounded-2xl border border-white/5 overflow-hidden mb-6 md:mb-8">
+              <div className="rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl overflow-hidden mb-6 md:mb-8 shadow-[0_24px_90px_rgba(0,0,0,0.65)]">
                 <div className="p-5 sm:p-6 md:p-8">
                   <p className="text-accent text-[11px] font-semibold tracking-[0.3em] uppercase mb-2">The Journey Awaits</p>
                   <h2 className="font-heading text-xl sm:text-2xl font-semibold text-white mb-5">
@@ -416,7 +378,7 @@ export default function TripDetailPage() {
                       : `Discover ${dest.name}: Where Leaders Find Clarity`
                     }
                   </h2>
-                  <p className="text-white/60 text-sm sm:text-base leading-relaxed">
+                  <p className="text-white/70 text-sm sm:text-base leading-relaxed">
                     {resort
                       ? `From the moment you arrive at ${resort.name}, every detail is designed to immerse you in a world where luxury meets purpose. Nestled in ${resort.location}, this isn't just a getaway — it's a transformative experience that blends executive-level strategy sessions with the kind of deep relaxation that only comes from truly extraordinary surroundings.`
                       : `${dest.name} offers a rare blend of natural beauty, cultural richness, and strategic opportunity. From the moment you step off the plane, you'll be immersed in an experience crafted specifically for leaders who want more than just a retreat — they want clarity, connection, and a roadmap for growth.`
@@ -445,13 +407,13 @@ export default function TripDetailPage() {
                     <h3 className="font-heading text-lg font-semibold text-white mb-3">
                       {resort ? 'Beyond the Boardroom' : 'A Journey of Discovery'}
                     </h3>
-                    <p className="text-white/60 text-sm sm:text-base leading-relaxed mb-4">
+                    <p className="text-white/70 text-sm sm:text-base leading-relaxed mb-4">
                       {resort
                         ? `Your days will flow between focused leadership workshops and experiences you simply can't have anywhere else. Imagine morning strategy sessions overlooking ${resort.location.includes('Sea') || resort.location.includes('Beach') || resort.location.includes('Coast') ? 'the ocean' : 'breathtaking mountain landscapes'}, followed by afternoons spent exploring the local culture, indulging in world-class spa treatments, or embarking on adventures that push your team beyond their comfort zone.`
                         : `Each day in ${dest.name} brings something new. Whether you're exploring ${dest.cities?.split(',')[0]?.trim()}'s vibrant culture, diving deep into technology ecosystem briefings, or unwinding at a luxury resort, you'll find that every experience is woven together with intention — designed to spark new thinking and build stronger bonds within your team.`
                       }
                     </p>
-                    <p className="text-white/60 text-sm sm:text-base leading-relaxed">
+                    <p className="text-white/70 text-sm sm:text-base leading-relaxed">
                       {resort
                         ? `The evenings are where the magic happens. Intimate dinners under the stars, deep conversations with industry leaders, and the kind of unstructured moments that often lead to the biggest breakthroughs. At ${resort.name}, we've seen teams arrive as colleagues and leave as a genuinely aligned leadership unit.`
                         : `But it's the unexpected moments that stay with you longest — a sunrise that shifts your perspective, a conversation with a local entrepreneur that sparks a new idea, or a quiet evening where your team finally has the space to think big without the noise of daily operations.`
@@ -462,7 +424,7 @@ export default function TripDetailPage() {
                   {/* Pull quote */}
                   <div className="relative rounded-xl bg-accent/5 border border-accent/15 px-5 sm:px-6 py-4 sm:py-5">
                     <span className="text-accent text-4xl font-heading leading-none absolute -top-4 left-4">"</span>
-                    <blockquote className="text-white/70 text-sm sm:text-base leading-relaxed italic pt-3">
+                    <blockquote className="text-white/80 text-sm sm:text-base leading-relaxed italic pt-3">
                       {resort
                         ? `${resort.name} isn't just a place to stay — it's where you reconnect with what matters. The combination of ${resort.type.toLowerCase()} surroundings and thoughtfully designed retreat sessions creates an environment where real transformation happens.`
                         : `${dest.name} surprised us at every turn. The retreat wasn't just productive — it was genuinely life-changing. We came for the strategy sessions and left with a completely new perspective on leadership and growth.`
@@ -487,8 +449,8 @@ export default function TripDetailPage() {
               {/* Gallery */}
               {galleryImages.length > 0 && (
                 <div className="mb-6 md:mb-8">
-                  <h2 className="font-heading text-xl sm:text-2xl font-semibold text-white mb-4 md:mb-6 flex items-center gap-2">
-                    <Camera className="h-5 w-5 text-accent" />Gallery
+                  <h2 className="font-heading text-xl sm:text-2xl font-semibold text-white mb-4 md:mb-6">
+                    Gallery
                   </h2>
                   <div className="grid grid-cols-3 grid-rows-2 gap-2 sm:gap-3 h-[280px] sm:h-[340px] md:h-[400px]">
                     <div onClick={() => setLightbox(0)} className="col-span-2 row-span-2 relative rounded-xl overflow-hidden group cursor-pointer">
@@ -534,7 +496,7 @@ export default function TripDetailPage() {
               <div className="lg:sticky lg:top-24 space-y-5">
 
                 {/* Pricing Card */}
-                <div className="rounded-2xl overflow-hidden border border-white/5">
+                <div className="rounded-2xl overflow-hidden border border-white/10 bg-white/[0.04] backdrop-blur-xl shadow-[0_24px_90px_rgba(0,0,0,0.7)]">
                   <div className="bg-linear-to-r from-accent to-accent-light p-5 sm:p-6 text-charcoal">
                     <p className="text-charcoal/60 text-sm mb-1">Starting from</p>
                     <div className="flex items-baseline gap-1">
@@ -544,7 +506,7 @@ export default function TripDetailPage() {
                       {price && <span className="text-charcoal/60 text-sm font-semibold">/ {priceNote}</span>}
                     </div>
                   </div>
-                  <div className="bg-surface p-5 sm:p-6 space-y-3">
+                  <div className="p-5 sm:p-6 space-y-3">
                     <Link
                       to="/plan-my-retreat"
                       className="flex items-center justify-center gap-2 w-full rounded-full bg-accent text-charcoal hover:bg-accent-light h-12 sm:h-14 text-sm sm:text-base font-semibold tracking-wider uppercase transition-all duration-300"
@@ -561,49 +523,34 @@ export default function TripDetailPage() {
                 </div>
 
                 {/* Quick Facts */}
-                <div className="bg-surface rounded-2xl p-5 sm:p-6 border border-white/5">
+                <div className="rounded-2xl p-5 sm:p-6 border border-white/10 bg-white/[0.03] backdrop-blur-xl">
                   <h3 className="font-heading text-lg font-semibold text-white mb-4">Quick Facts</h3>
                   <div className="space-y-4">
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-lg bg-accent/10 flex items-center justify-center">
-                        <MapPin className="h-4 w-4 text-accent" />
-                      </div>
                       <div>
                         <p className="text-[10px] text-white/30 uppercase tracking-wider">Location</p>
                         <p className="text-white/70 text-sm font-semibold">{location}</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-lg bg-accent/10 flex items-center justify-center">
-                        <Calendar className="h-4 w-4 text-accent" />
-                      </div>
                       <div>
                         <p className="text-[10px] text-white/30 uppercase tracking-wider">Duration</p>
                         <p className="text-white/70 text-sm font-semibold">{duration}</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-lg bg-accent/10 flex items-center justify-center">
-                        <Users className="h-4 w-4 text-accent" />
-                      </div>
                       <div>
                         <p className="text-[10px] text-white/30 uppercase tracking-wider">Group Size</p>
                         <p className="text-white/70 text-sm font-semibold">4–20 executives</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-lg bg-accent/10 flex items-center justify-center">
-                        <Building className="h-4 w-4 text-accent" />
-                      </div>
                       <div>
                         <p className="text-[10px] text-white/30 uppercase tracking-wider">Accommodation</p>
                         <p className="text-white/70 text-sm font-semibold">5-Star Luxury Resort</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-lg bg-accent/10 flex items-center justify-center">
-                        <Plane className="h-4 w-4 text-accent" />
-                      </div>
                       <div>
                         <p className="text-[10px] text-white/30 uppercase tracking-wider">Includes</p>
                         <p className="text-white/70 text-sm font-semibold">Transfers, Meals & Activities</p>
@@ -613,13 +560,8 @@ export default function TripDetailPage() {
                 </div>
 
                 {/* Testimonial */}
-                <div className="bg-surface rounded-2xl p-5 sm:p-6 border border-white/5">
-                  <div className="flex gap-1 mb-3">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 text-accent" fill="currentColor" />
-                    ))}
-                  </div>
-                  <blockquote className="text-white/50 text-sm leading-relaxed mb-4 italic">
+                <div className="rounded-2xl p-5 sm:p-6 border border-white/10 bg-white/[0.03] backdrop-blur-xl">
+                  <blockquote className="text-white/60 text-sm leading-relaxed mb-4 italic">
                     "An extraordinary blend of luxury, strategy, and cultural discovery. Our team returned transformed and with a clear roadmap for growth."
                   </blockquote>
                   <div className="flex items-center gap-3">
@@ -640,10 +582,9 @@ export default function TripDetailPage() {
                   </p>
                   <Link
                     to="/plan-my-retreat"
-                    className="inline-flex items-center gap-2 text-accent text-sm font-semibold hover:gap-3 transition-all duration-300"
+                    className="inline-flex items-center gap-1.5 text-accent text-sm font-semibold hover:gap-3 transition-all duration-300"
                   >
-                    Get in Touch
-                    <ArrowRight className="h-4 w-4" />
+                    Get in Touch →
                   </Link>
                 </div>
               </div>
@@ -665,10 +606,10 @@ export default function TripDetailPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
               {relatedItems.map((item) => (
                 <Link to={`/destinations/${id}/${item.id}`} key={item.id} className="group">
-                  <article className="bg-charcoal rounded-xl overflow-hidden border border-white/5 hover:border-white/10 transition-all duration-300 h-full flex flex-col">
+                  <article className="rounded-xl overflow-hidden border border-white/10 bg-white/[0.03] backdrop-blur-xl hover:bg-white/[0.06] hover:border-accent/40 transition-all duration-300 h-full flex flex-col shadow-[0_16px_70px_rgba(0,0,0,0.65)]">
                     <div className="relative aspect-video overflow-hidden">
                       <img alt={item.name || item.title} loading="lazy" className="object-cover absolute h-full w-full inset-0 transition-transform duration-500 group-hover:scale-105" src={item.image} />
-                      <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent" />
+                      <div className="absolute inset-0 bg-linear-to-t from-black/75 via-transparent to-transparent" />
                       {item._type === 'resort' && (
                         <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
                           <span className="text-[10px] tracking-[0.2em] uppercase font-semibold bg-accent/20 backdrop-blur-sm text-accent px-3 py-1.5 rounded-full border border-accent/20">
@@ -677,10 +618,9 @@ export default function TripDetailPage() {
                         </div>
                       )}
                       <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 flex items-center gap-1.5 text-white/70">
-                        {item._type === 'resort'
-                          ? <><MapPin className="h-3 w-3" /><span className="text-[11px] font-semibold">{item.location}</span></>
-                          : <><Clock className="h-3 w-3" /><span className="text-[11px] font-semibold">{item.duration}</span></>
-                        }
+                        <span className="text-[11px] font-semibold">
+                          {item._type === 'resort' ? item.location : item.duration}
+                        </span>
                       </div>
                     </div>
                     <div className="p-4 sm:p-5 flex-1 flex flex-col">
@@ -688,7 +628,7 @@ export default function TripDetailPage() {
                         {item.name || item.title}
                       </h3>
                       <p className="text-[11px] text-white/30 mb-auto">{item.tagline || item.cities}</p>
-                      <div className="flex items-end justify-between pt-4 mt-4 border-t border-white/5">
+                      <div className="flex items-end justify-between pt-4 mt-4 border-t border-white/10">
                         {item._type === 'package' ? (
                           <div>
                             <p className="text-[10px] text-white/30 uppercase tracking-wider">{item.priceNote}</p>
@@ -696,12 +636,11 @@ export default function TripDetailPage() {
                           </div>
                         ) : (
                           <div className="flex items-center gap-1.5 text-white/40 text-xs">
-                            <MapPin className="h-3 w-3" />{item.location}
+                            <span>{item.location}</span>
                           </div>
                         )}
-                        <span className="inline-flex items-center gap-1.5 text-white/30 font-semibold text-[11px] tracking-wider uppercase group-hover:text-accent group-hover:gap-2.5 transition-all">
-                          View
-                          <ArrowRight className="h-3.5 w-3.5" />
+                        <span className="inline-flex items-center text-white/40 font-semibold text-[11px] tracking-wider uppercase group-hover:text-accent transition-colors">
+                          View →
                         </span>
                       </div>
                     </div>
@@ -728,7 +667,6 @@ export default function TripDetailPage() {
               className="inline-flex items-center justify-center gap-2 rounded-full bg-accent text-charcoal hover:bg-accent-light px-8 py-3.5 text-[13px] tracking-widest uppercase font-semibold transition-all duration-300"
             >
               Start Planning
-              <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               to={`/destinations/${id}`}
@@ -746,30 +684,6 @@ export default function TripDetailPage() {
           className="fixed inset-0 z-[200] bg-black/90 backdrop-blur-sm flex items-center justify-center"
           onClick={() => setLightbox(-1)}
         >
-          {/* Close */}
-          <button
-            onClick={() => setLightbox(-1)}
-            className="absolute top-4 right-4 sm:top-6 sm:right-6 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
-          >
-            <X className="h-5 w-5 text-white" />
-          </button>
-
-          {/* Prev */}
-          <button
-            onClick={(e) => { e.stopPropagation(); setLightbox((lightbox - 1 + galleryImages.length) % galleryImages.length) }}
-            className="absolute left-2 sm:left-6 z-10 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
-          >
-            <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
-          </button>
-
-          {/* Next */}
-          <button
-            onClick={(e) => { e.stopPropagation(); setLightbox((lightbox + 1) % galleryImages.length) }}
-            className="absolute right-2 sm:right-6 z-10 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
-          >
-            <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
-          </button>
-
           {/* Image */}
           <div className="relative max-w-5xl max-h-[85vh] w-full mx-4 sm:mx-8" onClick={(e) => e.stopPropagation()}>
             <img
