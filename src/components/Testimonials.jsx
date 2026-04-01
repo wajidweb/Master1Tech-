@@ -1,5 +1,6 @@
+import { useMemo, useState } from 'react'
 import { Star } from 'lucide-react'
-import { testimonials, stats } from '../data/testimonials'
+import { testimonials } from '../data/testimonials'
 
 function StarRating({ rating }) {
   return (
@@ -12,70 +13,77 @@ function StarRating({ rating }) {
 }
 
 export default function Testimonials() {
+  const items = useMemo(() => testimonials || [], [])
+  const [active, setActive] = useState(0)
+  const t = items[active] || items[0]
+
   return (
     <section className="section-padding bg-surface">
       <div className="container-wide">
         <div className="text-center mb-10 sm:mb-14">
           <p className="text-accent text-[11px] font-semibold tracking-[0.3em] uppercase mb-3">Testimonials</p>
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-semibold text-white mb-3">
-            Trusted by Fortune 1000 Leaders
+            Testimonials
           </h2>
-          <p className="text-white/40 text-sm sm:text-base max-w-xl mx-auto font-semibold">
-            Visionary executives who transformed their perspective.
-          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-          {testimonials.map((t) => (
-            <div
-              key={t.id}
-              className="bg-surface-light rounded-xl overflow-hidden border border-white/5 hover:border-white/10 transition-all duration-300"
-            >
-              <div className="flex flex-col sm:flex-row">
-                <div className="relative w-full sm:w-2/5 aspect-video sm:aspect-auto sm:min-h-[200px]">
-                  <img
-                    alt={`${t.name} retreat`}
-                    loading="lazy"
-                    className="object-cover absolute h-full w-full inset-0"
-                    src={t.image}
-                  />
-                  <div className="absolute top-2 left-2 sm:top-3 sm:left-3">
-                    <span className="bg-accent/20 backdrop-blur-sm text-accent px-2 py-0.5 rounded-full text-[10px] font-semibold border border-accent/20">
-                      {t.type}
-                    </span>
-                  </div>
-                </div>
-                <div className="flex-1 p-4 sm:p-5 md:p-6 flex flex-col justify-between">
-                  <div>
-                    <StarRating rating={t.rating} />
-                    <p className="text-white/60 text-xs sm:text-sm leading-relaxed mb-4 line-clamp-4 sm:line-clamp-none">
-                      &ldquo;{t.text}&rdquo;
-                    </p>
-                  </div>
-                  <div className="border-t border-white/5 pt-3">
-                    <p className="font-semibold text-white text-xs sm:text-sm">{t.name}</p>
-                    <p className="text-white/30 text-[10px] sm:text-xs">
-                      {t.title}
-                    </p>
-                  </div>
-                </div>
-              </div>
+        <div className="max-w-5xl mx-auto">
+          <div className="relative rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-xl shadow-[0_24px_90px_rgba(0,0,0,0.65)] overflow-hidden">
+            <div className="absolute inset-0 pointer-events-none">
+              <div
+                className="absolute inset-0 opacity-[0.28]"
+                style={{
+                  backgroundImage:
+                    'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.10) 1px, transparent 0)',
+                  backgroundSize: '44px 44px',
+                }}
+              />
+              <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[680px] h-[340px] bg-accent/10 blur-3xl rounded-full" />
             </div>
-          ))}
-        </div>
 
-        <div className="mt-10 sm:mt-14 grid grid-cols-2 sm:flex sm:flex-wrap justify-center items-center gap-6 sm:gap-10 text-center">
-          {stats.map((s, i) => (
-            <div key={s.label} className="flex items-center gap-6 sm:gap-10">
-              <div>
-                <p className="font-heading text-3xl sm:text-4xl font-semibold text-accent">{s.value}</p>
-                <p className="text-white/30 text-[11px] tracking-wider uppercase mt-1">{s.label}</p>
+            <div className="relative px-5 sm:px-10 py-10 sm:py-14 text-center">
+              <div className="text-7xl sm:text-8xl font-heading text-white/10 leading-none select-none mb-3">
+                “
               </div>
-              {i < stats.length - 1 && (
-                <div className="h-10 w-px bg-white/10 hidden sm:block" />
-              )}
+              <p className="text-white/80 text-lg sm:text-2xl md:text-3xl font-medium leading-snug max-w-4xl mx-auto">
+                {t?.text}
+              </p>
+
+              <div className="mt-6 sm:mt-8">
+                <p className="text-white/80 font-semibold text-sm sm:text-base">{t?.name}</p>
+                <p className="text-white/40 text-xs sm:text-sm font-semibold">{t?.title}</p>
+              </div>
+
+              <div className="mt-4 flex justify-center">
+                <StarRating rating={t?.rating || 5} />
+              </div>
+
+              <div className="mt-6 sm:mt-8 flex items-center justify-center gap-2.5">
+                {items.slice(0, 8).map((x, i) => (
+                  <button
+                    key={x.id}
+                    type="button"
+                    onClick={() => setActive(i)}
+                    className={`relative rounded-xl overflow-hidden transition-all duration-200 ring-1 ${
+                      i === active
+                        ? 'ring-accent/60 opacity-100 scale-[1.02]'
+                        : 'ring-white/10 opacity-45 hover:opacity-80'
+                    }`}
+                    style={{ width: 44, height: 44 }}
+                    aria-label={`Show testimonial from ${x.name}`}
+                    aria-pressed={i === active}
+                  >
+                    <img
+                      alt={x.name}
+                      loading="lazy"
+                      className="object-cover absolute h-full w-full inset-0"
+                      src={x.image}
+                    />
+                  </button>
+                ))}
+              </div>
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>

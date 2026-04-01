@@ -9,7 +9,7 @@ import StepStyle from '../components/wizard/StepStyle'
 import StepDetails from '../components/wizard/StepDetails'
 import { CheckCircle } from 'lucide-react'
 
-const TOTAL_STEPS = 5
+const TOTAL_STEPS = 4
 
 export default function PlanRetreatPage() {
   const [currentStep, setCurrentStep] = useState(1)
@@ -24,11 +24,11 @@ export default function PlanRetreatPage() {
 
   const canContinue = () => {
     switch (currentStep) {
-      case 1: return formData.where.length > 0
-      case 2: return formData.when !== ''
-      case 3: return formData.who.size && formData.who.type
-      case 4: return formData.style.style
-      case 5: return formData.details.name && formData.details.email && formData.details.company && formData.details.role
+      // case 1: return formData.where.length > 0
+      case 1: return formData.when !== ''
+      case 2: return formData.who.size && formData.who.type
+      case 3: return formData.style.style
+      case 4: return formData.details.name && formData.details.email && formData.details.company && formData.details.role
       default: return false
     }
   }
@@ -98,31 +98,31 @@ export default function PlanRetreatPage() {
       </div>
 
       <div className="container-wide py-8 sm:py-10 md:py-14 px-4">
-        {currentStep === 1 && (
+        {/* {currentStep === 1 && (
           <StepWhere
             selected={formData.where}
             onUpdate={(val) => setFormData({ ...formData, where: val })}
           />
-        )}
-        {currentStep === 2 && (
+        )} */}
+        {currentStep === 1 && (
           <StepWhen
             selected={formData.when}
             onUpdate={(val) => setFormData({ ...formData, when: val })}
           />
         )}
-        {currentStep === 3 && (
+        {currentStep === 2 && (
           <StepWho
             selected={formData.who}
             onUpdate={(val) => setFormData({ ...formData, who: val })}
           />
         )}
-        {currentStep === 4 && (
+        {currentStep === 3 && (
           <StepStyle
             selected={formData.style}
             onUpdate={(val) => setFormData({ ...formData, style: val })}
           />
         )}
-        {currentStep === 5 && (
+        {currentStep === 4 && (
           <StepDetails
             selected={formData.details}
             onUpdate={(val) => setFormData({ ...formData, details: val })}

@@ -10,7 +10,7 @@ export default function StepDetails({ selected = {}, onUpdate }) {
   return (
     <div>
       <div className="text-center mb-8 sm:mb-10">
-        <p className="text-accent text-[11px] font-semibold tracking-[0.3em] uppercase mb-2">Step 5</p>
+        <p className="text-accent text-[11px] font-semibold tracking-[0.3em] uppercase mb-2">Step 4</p>
         <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-semibold text-white mb-2">
           Tell us about your team
         </h1>
