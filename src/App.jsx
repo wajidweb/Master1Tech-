@@ -7,6 +7,7 @@ import DestinationDetailPage from './pages/DestinationDetailPage'
 import RetreatStylesPage from './pages/RetreatStylesPage'
 import TripDetailPage from './pages/TripDetailPage'
 import PlanRetreatPage from './pages/PlanRetreatPage'
+import InsightDetailPage from './pages/InsightDetailPage'
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="/destinations/:id" element={<DestinationDetailPage />} />
         <Route path="/destinations/:id/:tripId" element={<TripDetailPage />} />
         <Route path="/retreat-styles" element={<RetreatStylesPage />} />
+        <Route path="/insights/:id" element={<InsightDetailPage />} />
       </Route>
       <Route element={<WizardLayout />}>
         <Route path="/plan-my-retreat" element={<PlanRetreatPage />} />

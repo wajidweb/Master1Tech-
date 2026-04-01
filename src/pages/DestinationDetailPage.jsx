@@ -79,11 +79,6 @@ export default function DestinationDetailPage() {
                       src={resort.image}
                     />
                     <div className="absolute inset-0 bg-linear-to-t from-black via-black/50 to-black/30" />
-                    <div className="absolute top-3 left-3">
-                      <span className="text-[9px] tracking-[0.2em] uppercase font-semibold bg-black/50 backdrop-blur-md text-accent px-2.5 py-1 rounded-full border border-accent/20">
-                        {resort.type}
-                      </span>
-                    </div>
 
                     <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">
                       <div className="flex items-center gap-1.5 text-white/70 mb-2">

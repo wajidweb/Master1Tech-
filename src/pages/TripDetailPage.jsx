@@ -64,11 +64,41 @@ export default function TripDetailPage() {
   // Use resort/package specific gallery, fallback to destination gallery
   const galleryImages = resort?.gallery || pkg?.gallery || dest.gallery || []
 
-  // Other packages/resorts from same destination for "You Might Also Like" (max 3 total)
-  const relatedItems = [
-    ...resorts.filter((r) => r.id !== tripId).map((r) => ({ ...r, _type: 'resort' })),
-    ...destPackages.filter((p) => p.id !== tripId).map((p) => ({ ...p, _type: 'package' })),
-  ].slice(0, 3)
+  const youMightAlsoLikeCards = [
+    {
+      id: 'facilities',
+      eyebrow: 'Facilities',
+      title: 'Facilities Built for Executive Retreats',
+      images: ['/khoj/Beach-hero.jpg', '/khoj/Khoj 9.jpg', '/khoj/Khoj4.jpeg'],
+      to: '/insights/facilities',
+    },
+    {
+      id: 'why-pakistan',
+      eyebrow: 'Why Pakistan',
+      title: 'Why Pakistan Should Be Your Next Destination',
+      images: [
+        '/IT/devsinc.jpg',
+        '/IT/it.jpg',
+        '/IT/nicislamabad.jpg',
+        '/IT/NICL%20Investor%20Banner_1.jpg',
+        '/IT/nicpeshawar.png',
+      ],
+      to: '/insights/why-pakistan',
+    },
+    {
+      id: 'talent',
+      eyebrow: 'Talent Discovery',
+      title: 'Our Goal: Global Leaders Discover Talent in Pakistan',
+      images: [
+        '/talent/hiring.jpg',
+        '/talent/meeting.jpg',
+        '/talent/meeting2.jpg',
+        '/IT/it.jpg',
+        '/IT/nicislamabad.jpg',
+      ],
+      to: '/insights/talent',
+    },
+  ]
 
   if (!resort && !pkg) {
     return (
@@ -210,13 +240,39 @@ export default function TripDetailPage() {
   return (
     <>
       {/* Hero — simple, cinematic overlay */}
-      <section className="relative min-h-[55vh] md:min-h-[65vh] overflow-hidden flex items-end">
+      <section className={`relative overflow-hidden flex items-end ${
+        resort?.id === 'khoj-allana' || resort?.id === 'khoj-shigar' ? 'min-h-svh' : 'min-h-[55vh] md:min-h-[65vh]'
+      }`}>
         <div className="absolute inset-0">
-          <img
-            alt={title}
-            className="object-cover object-center absolute h-full w-full inset-0"
-            src={heroImage}
-          />
+          {resort?.id === 'khoj-allana' ? (
+            <video
+              className="object-cover object-center absolute h-full w-full inset-0"
+              src="/videos/khoj-allana-vlog.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              poster={heroImage}
+            />
+          ) : resort?.id === 'khoj-shigar' ? (
+            <video
+              className="object-cover object-center absolute h-full w-full inset-0"
+              src="/videos/khoj-shigar-vlog.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              poster={heroImage}
+            />
+          ) : (
+            <img
+              alt={title}
+              className="object-cover object-center absolute h-full w-full inset-0"
+              src={heroImage}
+            />
+          )}
           <div className="absolute inset-0 bg-black/60" />
           <div className="absolute inset-0 bg-linear-to-t from-charcoal via-charcoal/40 to-transparent" />
         </div>
@@ -594,8 +650,7 @@ export default function TripDetailPage() {
       </section>
 
       {/* You Might Also Like */}
-      {relatedItems.length > 0 && (
-        <section className="section-padding bg-surface border-t border-white/5">
+      <section className="section-padding bg-surface border-t border-white/5">
           <div className="container-wide">
             <div className="text-center mb-8 sm:mb-12">
               <p className="text-accent text-[11px] font-semibold tracking-[0.3em] uppercase mb-3">Explore More</p>
@@ -604,43 +659,41 @@ export default function TripDetailPage() {
               </h2>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-              {relatedItems.map((item) => (
-                <Link to={`/destinations/${id}/${item.id}`} key={item.id} className="group">
+              {youMightAlsoLikeCards.map((c) => (
+                <Link to={c.to} key={c.id} className="group">
                   <article className="rounded-xl overflow-hidden border border-white/10 bg-white/[0.03] backdrop-blur-xl hover:bg-white/[0.06] hover:border-accent/40 transition-all duration-300 h-full flex flex-col shadow-[0_16px_70px_rgba(0,0,0,0.65)]">
                     <div className="relative aspect-video overflow-hidden">
-                      <img alt={item.name || item.title} loading="lazy" className="object-cover absolute h-full w-full inset-0 transition-transform duration-500 group-hover:scale-105" src={item.image} />
-                      <div className="absolute inset-0 bg-linear-to-t from-black/75 via-transparent to-transparent" />
-                      {item._type === 'resort' && (
-                        <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
-                          <span className="text-[10px] tracking-[0.2em] uppercase font-semibold bg-accent/20 backdrop-blur-sm text-accent px-3 py-1.5 rounded-full border border-accent/20">
-                            {item.type}
-                          </span>
-                        </div>
-                      )}
-                      <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 flex items-center gap-1.5 text-white/70">
-                        <span className="text-[11px] font-semibold">
-                          {item._type === 'resort' ? item.location : item.duration}
+                      <img alt={c.title} loading="lazy" className="object-cover absolute h-full w-full inset-0 transition-transform duration-700 group-hover:scale-105" src={c.images[0]} />
+                      <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/25 to-transparent" />
+                      <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
+                        <span className="text-[10px] tracking-[0.2em] uppercase font-semibold bg-accent/15 backdrop-blur-sm text-accent px-3 py-1.5 rounded-full border border-accent/20">
+                          {c.eyebrow}
                         </span>
                       </div>
+
+                      <div className={`absolute bottom-3 left-3 right-3 flex flex-wrap gap-1.5 ${c.images.length > 3 ? 'justify-start' : ''}`}>
+                        {c.images.map((src) => (
+                          <div
+                            key={src}
+                            className={`relative rounded-lg overflow-hidden border border-white/10 bg-black/20 shrink-0 ${
+                              c.images.length > 3 ? 'w-11 h-8 sm:w-12 sm:h-9' : 'w-14 h-10'
+                            }`}
+                          >
+                            <img alt="" className="object-cover absolute h-full w-full inset-0" src={src} />
+                          </div>
+                        ))}
+                      </div>
                     </div>
+
                     <div className="p-4 sm:p-5 flex-1 flex flex-col">
-                      <h3 className="font-heading text-lg sm:text-xl font-semibold text-white mb-1 group-hover:text-accent transition-colors line-clamp-1">
-                        {item.name || item.title}
+                      <h3 className="font-heading text-lg sm:text-xl font-semibold text-white mb-2 group-hover:text-accent transition-colors leading-snug">
+                        {c.title}
                       </h3>
-                      <p className="text-[11px] text-white/30 mb-auto">{item.tagline || item.cities}</p>
-                      <div className="flex items-end justify-between pt-4 mt-4 border-t border-white/10">
-                        {item._type === 'package' ? (
-                          <div>
-                            <p className="text-[10px] text-white/30 uppercase tracking-wider">{item.priceNote}</p>
-                            <p className="font-heading text-xl font-semibold text-accent">{item.price}</p>
-                          </div>
-                        ) : (
-                          <div className="flex items-center gap-1.5 text-white/40 text-xs">
-                            <span>{item.location}</span>
-                          </div>
-                        )}
+                      <div className="mt-auto" />
+
+                      <div className="flex items-center justify-between pt-4 mt-4 border-t border-white/10">
                         <span className="inline-flex items-center text-white/40 font-semibold text-[11px] tracking-wider uppercase group-hover:text-accent transition-colors">
-                          View →
+                          Read more →
                         </span>
                       </div>
                     </div>
@@ -650,7 +703,6 @@ export default function TripDetailPage() {
             </div>
           </div>
         </section>
-      )}
 
       {/* Bottom CTA */}
       <section className="section-padding bg-surface border-t border-white/5">

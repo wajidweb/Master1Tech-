@@ -6,7 +6,7 @@ export default function CallToAction() {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=2070&q=80')",
+          backgroundImage: "url('/khoj/Khoj 8.jpg')",
         }}
       />
       <div className="absolute inset-0 bg-charcoal/90" />

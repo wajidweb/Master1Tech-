@@ -128,7 +128,7 @@ export default function Hero() {
         <img
           alt="Luxury executive retreat destination"
           className="object-cover object-center absolute h-full w-full inset-0 scale-[1.02]"
-          src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=2070&q=80"
+          src="/khoj/Beach-hero.jpg"
         />
         <div className="absolute inset-0 bg-black/50" />
         <div className="absolute inset-0 bg-linear-to-b from-charcoal/40 via-charcoal/20 to-charcoal/70" />

@@ -1,6 +1,29 @@
-node_modules
-dist
+# Dependencies (never commit)
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+
+# Environment & secrets
 .env
 .env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS
 .DS_Store
+Thumbs.db
+
+# Editor / local overrides
 *.local
+.idea/
+
+# Test coverage
+coverage/

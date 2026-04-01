@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300..800&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-heading: "Aeonik", Helvetica, Arial, sans-serif;
-  --font-sans: "Aeonik", Helvetica, Arial, sans-serif;
+  --font-heading: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
   --color-brand: #3b82f6;
   --color-brand-hover: #2563eb;
@@ -26,10 +27,23 @@ body {
   font-family: var(--font-sans);
   background-color: #0a0a0a;
   color: #e2e8f0;
+  letter-spacing: -0.015em;
+  font-weight: 300;
 }
 
 .font-heading {
   font-family: var(--font-heading);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+p {
+  font-weight: 300;
 }
 
 .container-wide {

@@ -19,7 +19,7 @@ export default function StepWho({ selected = {}, onUpdate }) {
   return (
     <div>
       <div className="text-center mb-8 sm:mb-10">
-        <p className="text-accent text-[11px] font-semibold tracking-[0.3em] uppercase mb-2">Step 3</p>
+        <p className="text-accent text-[11px] font-semibold tracking-[0.3em] uppercase mb-2">Step 2</p>
         <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-semibold text-white mb-2">
           How large is your group?
         </h1>

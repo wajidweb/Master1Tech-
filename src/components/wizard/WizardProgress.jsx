@@ -1,4 +1,4 @@
-const stepNames = ['Where', 'When', 'Who', 'Style', 'Details']
+const stepNames = [ 'When', 'Who', 'Style', 'Details']
 
 export default function WizardProgress({ currentStep }) {
   return (
